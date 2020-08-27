@@ -1,0 +1,691 @@
+body {
+  margin: 0;
+  font-size: 1.2em;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.landing-page {
+  background-image: url('./img/background.jpg'),
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.75));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  height: 100vh;
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 20px;
+  opacity: 0.9;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.danger {
+  background: #dc3545;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.success {
+  background: #28a745;
+  color: #fff;
+  margin: 0 auto;
+}
+/*----------NAVBAR----------*/
+.navbar {
+  display: flex;
+}
+
+.logo img {
+  margin: 9px 0 0 20px;
+}
+
+.logo a:hover {
+  color: white;
+  cursor: default;
+}
+
+.menu {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.links {
+  flex-grow: 2;
+  display: inline;
+}
+
+.nav-ul {
+  margin-top: 45px;
+}
+
+.nav-ul li {
+  text-decoration: none;
+  display: inline;
+  margin: 0px 50px 0 50px;
+}
+
+.nav-ul li a,
+.Link-Auth-Btn {
+  text-decoration: none;
+  color: white;
+}
+
+.btns {
+  margin: 30px 30px 0 0;
+}
+
+.btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 20px;
+  width: 120px;
+  height: 50px;
+}
+
+.btn:hover,
+.nav-ul li a:hover,
+.Link-Auth-Btn:hover,
+.Link-Auth-Btn-Register:hover {
+  color: #c9e5df;
+  cursor: pointer;
+}
+/*----------NAVBAR END----------*/
+
+/*----------JUMBOTRON----------*/
+.jumbotron {
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.jumbotron-p-1 {
+  font-size: 50px;
+  margin-bottom: -15px;
+}
+
+.jumbotron-p-2 {
+  font-size: 20px;
+}
+
+.btn-jumbo-signup,
+.btn-jumbo-login {
+  font-size: 15px;
+}
+
+.btn-jumbo-signup {
+  margin-right: 5px;
+  background-color: teal;
+}
+
+.btn-jumbo-login {
+  margin-left: 5px;
+  background-color: #c9e5df;
+  color: black;
+}
+
+.btn-jumbo-login:hover,
+.Link-Auth-Btn-Login:hover {
+  color: #666f6d;
+}
+
+.Link-Auth-Btn-Register,
+.Link-Auth-Btn-Login {
+  text-decoration: none;
+  color: white;
+}
+/*----------JUMBOTRON END----------*/
+
+/*----------LOGIN FORM ----------*/
+.login-form {
+  display: flex;
+  flex-flow: column;
+  width: 25%;
+  height: auto;
+  background-color: white;
+  color: black;
+  justify-content: space-between;
+  position: fixed;
+  border-radius: 10px;
+}
+
+.form-inputs {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-top: 10%;
+  height: auto;
+}
+
+.form-inputs input,
+.modal-edit-profile-input {
+  border: 1px solid #00b3b3;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.form-inputs input:focus,
+.btn:focus,
+.modal-edit-profile-input:focus {
+  outline: none;
+}
+
+.credentials {
+  padding: 5px;
+  margin: 0 20px 0 20px;
+  box-shadow: 1px 2px #00b3b3;
+}
+
+.btn-submit-login {
+  margin: 0 auto 0 auto;
+}
+
+.form-option-1 {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  margin-top: 5%;
+}
+
+.text-1,
+.text-2,
+.text-3 {
+  color: #008080;
+  padding: 10px;
+}
+
+.text-2,
+.text-3 {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.text-1 {
+  font-weight: 300;
+  font-size: 40px;
+}
+
+.text-3 {
+  text-decoration: none;
+  margin-top: 10%;
+}
+
+.text-3 a {
+  text-decoration: none;
+  color: #008080;
+}
+/*---Social---*/
+.social a i {
+  color: white;
+  width: 40px;
+  height: 50px;
+}
+
+.facebook-btn,
+.google-btn,
+.twitter-btn {
+  background-color: #008080;
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
+  margin: 5px;
+}
+/*---Social End---*
+/*----------LOGIN FORM END----------*/
+
+/*-----Contact Page-----*/
+.contact-form-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+
+.contact-us-form {
+  background-color: #fcffff;
+  padding: 1%;
+}
+
+.form-element {
+  width: 100%;
+  height: 30px;
+  margin: 0 0 5% 0;
+}
+
+.contact-us-form {
+  position: static;
+  padding-bottom: 10px;
+}
+
+.contact-us-label {
+  margin: 0 auto;
+}
+
+.contact-us-form textarea {
+  border-radius: 20px;
+  margin-top: 20px;
+  height: 50px;
+  resize: none;
+  padding: 15px;
+}
+
+.contact-us-form textarea:focus {
+  outline: none;
+}
+
+.preferred-div label,
+.preferred-div span {
+  font-size: 15px;
+  padding: 0;
+}
+
+.preferred-div span {
+  margin-left: 6%;
+}
+
+.preferred-div label {
+  margin-left: -3%;
+}
+
+.emailSupport {
+  text-decoration: underline;
+}
+
+.contact-us-support {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  color: #cccccc;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.contact-us-support p {
+  margin-top: -3%;
+}
+/*-----Contact Page END-----*/
+
+/*----------Profile Page----------*/
+.landing-profile {
+  background-color: #343a40;
+}
+
+#custom-text {
+  font-size: 0.8em;
+  color: black;
+}
+
+.container {
+  background-color: #fcffff;
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.profile-text {
+  font-size: 0.8em;
+}
+
+.profile-img,
+.profile {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+  margin: 100px 5% 5px 5%;
+}
+
+.profile-img {
+  flex-grow: 2;
+  justify-content: start;
+  border-right: 1px solid black;
+}
+
+.profile-img img,
+.image-upload-btn {
+  margin: 0 auto 0 auto;
+}
+
+.image-upload-btn img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.profile-img img {
+  margin: 100px 0 30px 0;
+}
+
+.btn-edit-image:focus {
+  outline: none;
+}
+
+.btn-edit-profile {
+  margin: 20px 0 20px 0;
+}
+
+.profile-details {
+  padding: 10px;
+  border-bottom: 1px solid #ebedf0;
+}
+
+.change-password {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 10%;
+  font-weight: bold;
+  height: auto;
+}
+
+.change-password p {
+  padding-top: 20px;
+  border-top: 1px solid black;
+}
+
+.change-password-input {
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.btn-save-changes {
+  height: 50px;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-box {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 30%;
+  width: 20%;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+.h3-modal {
+  margin: 0 auto;
+}
+
+.modal-form {
+  flex-grow: 2;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
+
+.modal-edit-profile-input {
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.modal-save {
+  background-color: #008080;
+  border: none;
+  color: white;
+  margin: 0 auto;
+  width: 20%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 5%;
+  left: 90%;
+  background-color: #fcffff;
+  border: none;
+}
+
+.close-modal:hover,
+.modal-save:hover {
+  background-color: #00b3b3;
+}
+/*----------Profile Page END----------*/
+
+/*----------Listing Page----------*/
+.outter-container {
+  background-color: #fcffff;
+  display: flex;
+  justify-content: start;
+  max-height: 100vh;
+}
+/*---Search Criteria---*/
+.search {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 0 20px 20px 20px;
+  border-right: 1px solid #cccccc;
+  overflow-y: scroll;
+}
+
+.search-criteria {
+  position: relative;
+  top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.search-input {
+  height: 30px;
+  width: 250px;
+}
+
+.search-btn {
+  position: absolute;
+  top: 5px;
+  left: 220px;
+  background-color: white;
+  border: none;
+}
+
+.search-btn i {
+  color: #a7a6ab;
+}
+
+.filter-for,
+.filter-price,
+.filter-home-type {
+  padding: 0 20px 20px 10px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.filter-btn-div {
+  margin: 5px auto 5px auto;
+}
+/*---Search Criteria End---*/
+
+/*---Individual Listing---*/
+.listings {
+  display: flex;
+  justify-content: flex-start;
+  width: 1000px;
+  flex-wrap: wrap;
+  margin: 0 auto 20px auto;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.individual-listing {
+  border: 1px solid #d1d1d5;
+  margin: 5% 10px 0 10px;
+  width: 420px;
+  padding-top: 10px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 30px;
+  margin-right: 90px;
+}
+
+.detail {
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#listing-type {
+  font-size: 15px;
+}
+
+#listing-type i {
+  color: red;
+  font-size: 15px;
+  margin-top: -5px;
+}
+
+.btn-listing {
+  background-color: white;
+  border: none;
+}
+
+.btn-listing i {
+  font-size: 20px;
+}
+
+.listing-btns {
+  margin-left: 50%;
+}
+/*---Individual Listing End---*/
+/*----------Listing Page END----------*/
+
+/*----------Add Listing Page----------*/
+/*---Add Listing Details---*/
+.add-listing-container {
+  background-color: #fcffff;
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+}
+
+.add-listing-details,
+.add-listing-images {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.add-listing-details {
+  border-right: 1px solid black;
+  padding-right: 20px;
+  margin: 30px 20px 0 20px;
+  height: 100vh;
+}
+
+.all-details {
+  overflow-y: auto;
+}
+
+.property-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.property-details-input {
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.property-overview-textarea {
+  width: 98%;
+  height: 100px;
+  resize: none;
+}
+
+.property-facts-features-input,
+.property-nearby-school-input {
+  height: 20px;
+}
+
+.property-nearby-things-input {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-save {
+  padding: 10px;
+  width: 80px;
+  height: 40px;
+  margin: 0 auto 40px auto;
+}
+/*---Add Listing Details END---*/
+
+/*---Add Listing Images---*/
+.add-listing-images {
+  padding-right: 20px;
+  margin: 30px 20px 0 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.listing-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 2;
+  max-width: 750px;
+  overflow-y: scroll;
+}
+
+.listing-images img {
+  margin-top: 15px;
+  width: 350px;
+  height: 250px;
+}
+
+.btn-add-listing-edit {
+  margin-bottom: 20px;
+}
+
+.btn-save-image {
+  margin-top: 20px;
+}
+/*---Add Listing Images END---*/
+/*----------Add Listing Page END----------*/

@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 const express = require('express');
 const multer = require('multer');
 const router = express.Router();
-const sharp = require('sharp');
+const fs = require('fs');
 //models
 const Agent = require('../models/Agent');
 
@@ -13,7 +13,7 @@ const Agent = require('../models/Agent');
 // @access Private
 router.get('/', auth, async (req, res) => {
   try {
-    const agent = await Agent.findById(req.agent.id);
+    const agent = await Agent.findById(req.agent.id).select('-password');
     return res.status(200).send(agent);
   } catch (err) {
     console.log(err.message);
@@ -39,6 +39,14 @@ router.patch('/edit', auth, async (req, res) => {
     if (!agent) {
       return res.status(400).json({ msg: 'No agent found' });
     }
+
+    let phone = req.body.phoneNumber.split('');
+    phone.splice(0, 0, '(');
+    phone.splice(4, 0, ')');
+    phone.splice(5, 0, ' ');
+    phone.splice(9, 0, '-');
+    req.body.phoneNumber = phone.join(' ');
+
     updates.forEach((update) => {
       (agent.fullName = req.body.fullName),
         (agent.email = req.body.email),
@@ -94,6 +102,15 @@ router.patch(
 
 // upload object for profile pic
 const upload = multer({
+  storage: multer.diskStorage({
+    destination(res, file, next) {
+      next(null, './agent-portal-client/public/profilePic');
+    },
+    filename(res, file, next) {
+      file.originalname = 'profilePic.jpeg';
+      next(null, file.originalname);
+    },
+  }),
   fileFilter(res, file, cb) {
     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
       return cb(new Error('Please upload an image'));
@@ -106,15 +123,11 @@ const upload = multer({
 // @access Private
 router.patch('/image', auth, upload.single('avatar'), async (req, res) => {
   try {
-    const buffer = await sharp(req.file.buffer)
-      .resize({ width: 250, height: 250 })
-      .png()
-      .toBuffer();
     const agent = await Agent.findById(req.agent.id);
     if (!agent) {
       return res.status(400).json({ msg: 'No agent found' });
     }
-    agent.avatar = buffer;
+    agent.avatar = req.file.filename;
     await agent.save();
     res.status(200).send('Picture uploaded');
   } catch (err) {

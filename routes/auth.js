@@ -16,11 +16,8 @@ router.post(
   '/register',
   [
     check('fullName', 'Please provide your full name').not().isEmpty(),
-    check('email', 'Please provide an email').not().isEmpty().isEmail(),
-    check('password', 'Please provide password')
-      .not()
-      .isEmpty()
-      .isLength({ min: 6 }),
+    check('email', 'Please provide an email').isEmail(),
+    check('password', 'Please provide password').isLength({ min: 6 }),
     check('phoneNumber', 'Please provide a phone number').not().isEmpty(),
   ],
   async (req, res) => {
@@ -29,18 +26,21 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).send({ errors: errors.array() });
       }
-      const { fullName, email, password, phoneNumber } = req.body;
+      let { fullName, email, password, phoneNumber } = req.body;
 
       let agent = await Agent.findOne({ email });
       if (agent) {
         return res.status(400).send('User already exists');
       }
 
-      const avatar = gravatar.url(email, {
-        s: '200',
-        r: 'pg',
-        d: 'mm',
-      });
+      const avatar = './agent-portal-client/public/profilePic/profilePic.jpeg';
+
+      let phone = phoneNumber.split('');
+      phone.splice(0, 0, '(');
+      phone.splice(4, 0, ')');
+      phone.splice(5, 0, ' ');
+      phone.splice(9, 0, '-');
+      phoneNumber = phone.join(' ');
 
       agent = new Agent({
         fullName,

@@ -15,11 +15,11 @@ const AgentSchema = new mongoose.Schema({
     required: true,
   },
   phoneNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
   avatar: {
-    type: Buffer,
+    type: String,
   },
   dates: {
     type: Date,

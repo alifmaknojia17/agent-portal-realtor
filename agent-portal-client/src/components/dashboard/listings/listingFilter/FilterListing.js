@@ -4,13 +4,13 @@ import ListingType from './listingFilterCategory/ListingType';
 import Price from './listingFilterCategory/Price';
 import HomeType from './listingFilterCategory/HomeType';
 
-const FilterListing = ({ onListingTypeInputChange }) => {
+const FilterListing = ({ onListingTypeInputChange, onPriceInputChange }) => {
   return (
     <Fragment>
       <div className='search'>
         <Search />
         <ListingType onListingTypeInputChange={onListingTypeInputChange} />
-        <Price />
+        <Price onPriceInputChange={onPriceInputChange} />
         <HomeType />
         <div className='filter-btn-div'>
           <button className='btn btn-jumbo-signup btn-save filter-btn'>

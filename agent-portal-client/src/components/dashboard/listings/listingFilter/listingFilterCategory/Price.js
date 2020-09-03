@@ -1,41 +1,107 @@
 import React, { Fragment } from 'react';
 
-const Price = () => {
+const Price = ({ onPriceInputChange }) => {
   return (
     <Fragment>
       <div className='filter-price'>
         <p>Price:</p>
-        <input type='radio' name='listingPrice' id='0' value='0' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='0'
+          value='0'
+          onChange={onPriceInputChange}
+        />
         <label for='0'>$0+</label>
         <br />
-        <input type='radio' name='listingPrice' id='100k' value='100k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='100k'
+          value='100000'
+          onChange={onPriceInputChange}
+        />
         <label for='100k'>$100,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='200k' value='200k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='200k'
+          value='200000'
+          onChange={onPriceInputChange}
+        />
         <label for='200k'>$200,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='300k' value='300k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='300k'
+          value='300000'
+          onChange={onPriceInputChange}
+        />
         <label for='300k'>$300,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='400k' value='400k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='400k'
+          value='400000'
+          onChange={onPriceInputChange}
+        />
         <label for='400k'>$400,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='500k' value='500k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='500k'
+          value='500000'
+          onChange={onPriceInputChange}
+        />
         <label for='500k'>$500,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='600k' value='600k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='600k'
+          value='600000'
+          onChange={onPriceInputChange}
+        />
         <label for='600k'>$600,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='700k' value='700k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='700k'
+          value='700000'
+          onChange={onPriceInputChange}
+        />
         <label for='700k'>$700,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='800k' value='800k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='800k'
+          value='800000'
+          onChange={onPriceInputChange}
+        />
         <label for='800k'>$800,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='900k' value='900k' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='900k'
+          value='900000'
+          onChange={onPriceInputChange}
+        />
         <label for='900k'>$900,000+</label>
         <br />
-        <input type='radio' name='listingPrice' id='1m' value='1m' />
+        <input
+          type='radio'
+          name='listingPrice'
+          id='1m'
+          value='1000000'
+          onChange={onPriceInputChange}
+        />
         <label for='1m'>$1,000,000+</label>
         <br />
       </div>

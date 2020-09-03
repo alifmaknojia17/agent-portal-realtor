@@ -17,28 +17,42 @@ const Listings = ({ loadListings, listings: { allListings } }) => {
   });
 
   const onListingTypeInputChange = (e) => {
-    let listing = allListings.filter((listing) => {
+    const listing = allListings.filter((listing) => {
       return listing.propertyDetails.listingType === e.target.value;
     });
     setFilter({ filter, listings: listing });
   };
-  console.log(filter.listings);
+
+  const onPriceInputChange = (e) => {
+    let listing = allListings.filter((listing) => {
+      return (
+        parseInt(listing.propertyDetails.price) >= parseInt(e.target.value)
+      );
+    });
+    if (listing.length === 0 && e.target.value !== null) {
+      listing = -1;
+    }
+    setFilter({ filter, listings: listing });
+  };
 
   return (
     <Fragment>
       <Navbar />
       <div className='outter-container'>
-        <FilterListing onListingTypeInputChange={onListingTypeInputChange} />
+        <FilterListing
+          onListingTypeInputChange={onListingTypeInputChange}
+          onPriceInputChange={onPriceInputChange}
+        />
         <div className='listings'>
           {allListings.length > 0 && filter.listings.length <= 0
             ? allListings.map((listing) => (
                 <IndividualListing key={listing.id} listing={listing} />
               ))
-            : filter.listings.length > 0
+            : filter.listings.length > 0 && filter.listings !== -1
             ? filter.listings.map((listing) => (
                 <IndividualListing key={listing.id} listing={listing} />
               ))
-            : 'Add listings'}
+            : 'No Listings'}
         </div>
       </div>
     </Fragment>

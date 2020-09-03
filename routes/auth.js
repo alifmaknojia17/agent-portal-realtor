@@ -30,7 +30,7 @@ router.post(
 
       let agent = await Agent.findOne({ email });
       if (agent) {
-        return res.status(400).send('User already exists');
+        return res.status(400).json({ msg: 'User already exists' });
       }
 
       const avatar = './agent-portal-client/public/profilePic/profilePic.jpeg';

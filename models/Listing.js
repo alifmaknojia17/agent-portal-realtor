@@ -19,11 +19,11 @@ const ListingSchema = new mongoose.Schema({
       required: true,
     },
     zip: {
-      type: Number,
+      type: String,
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     squareFoot: {
@@ -31,7 +31,7 @@ const ListingSchema = new mongoose.Schema({
       required: true,
     },
     beds: {
-      type: Number,
+      type: String,
       required: true,
     },
     bath: {
@@ -53,11 +53,11 @@ const ListingSchema = new mongoose.Schema({
       required: true,
     },
     yearBuilt: {
-      type: Number,
+      type: String,
       required: true,
     },
     parking: {
-      type: Number,
+      type: String,
       required: true,
     },
     HOA: {
@@ -79,12 +79,10 @@ const ListingSchema = new mongoose.Schema({
       required: true,
     },
   },
-  nearBy: [
-    {
-      type: String,
-      required: true,
-    },
-  ],
+  nearBy: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

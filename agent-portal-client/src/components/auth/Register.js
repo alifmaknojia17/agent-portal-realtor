@@ -44,11 +44,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           id='form'
           onSubmit={(e) => onSubmit(e)}
         >
-          <Alert />
           <div className='form-inputs'>
+            <Alert />
             <label className='text-1' htmlFor='form'>
               Register
             </label>
+
             <input
               className='credentials'
               placeholder='Full Name'

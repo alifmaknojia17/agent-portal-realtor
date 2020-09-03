@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import Alert from '../layout/Alert';
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -36,6 +37,7 @@ const Login = ({ login, isAuthenticated }) => {
           onSubmit={(e) => onSubmit(e)}
         >
           <div className='form-inputs'>
+            <Alert />
             <label className='text-1' for='form'>
               Login
             </label>
@@ -45,6 +47,7 @@ const Login = ({ login, isAuthenticated }) => {
               name='email'
               value={email}
               onChange={(e) => onChange(e)}
+              required
             />
             <input
               className='credentials'
@@ -53,6 +56,7 @@ const Login = ({ login, isAuthenticated }) => {
               name='password'
               value={password}
               onChange={(e) => onChange(e)}
+              required
             />
             <input
               className='btn btn-jumbo-signup btn-submit-login'

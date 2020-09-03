@@ -7,14 +7,17 @@ const fs = require('fs');
 //model
 const Image = require('../models/Image');
 const Listing = require('../models/Listing');
+const { compareSync } = require('bcryptjs');
 
+let count = 1;
 // upload multer object for post request
 const upload = multer({
   storage: multer.diskStorage({
     destination(res, file, next) {
-      next(null, './public/img');
+      next(null, './agent-portal-client/public/listingImages');
     },
     filename(res, file, next) {
+      file.originalname = `listingImage${count++}.jpeg`;
       next(null, file.originalname);
     },
   }),
@@ -28,16 +31,20 @@ const upload = multer({
 // @route POST /images/:listingID
 // @desc Upload the picture of listing
 // @access Private
-router.post('/:listingID', auth, upload.array('image', 7), async (req, res) => {
+router.post('/:listingID', auth, upload.array('image', 8), async (req, res) => {
+  count = 0;
   try {
     const listing = await Listing.findOne({ _id: req.params.listingID });
     if (!listing) {
       return res.status(400).json({ msg: 'no listing found' });
     }
     const images = await Image.find({ listing: listing._id });
-    if (images.length > 7 || images.length + req.files.length > 7) {
-      return res.status(400).json({ msg: 'You can only upload 7 images max' });
+    if (images.length > 8 || images.length + req.files.length > 8) {
+      return res.status(400).json({ msg: 'You can only upload 8 images max' });
     }
+
+    console.log(req.files);
+
     req.files.forEach(async (file) => {
       const newImage = new Image({
         listing: req.params.listingID,

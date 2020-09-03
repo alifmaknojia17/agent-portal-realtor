@@ -8,9 +8,10 @@ import Register from '../src/components/auth/Register';
 import Login from '../src/components/auth/Login';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
-import Profile from './components/dashboard/Profile';
-import Listings from './components/dashboard/Listings';
-import AddListing from './components/dashboard/AddListing';
+import Profile from './components/dashboard/profile/Profile';
+import Listings from './components/dashboard/listings/Listings';
+import AddListing from './components/dashboard/addListing/AddListing';
+import EditListing from './components/dashboard/listings/editListing/EditListing';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -38,6 +39,7 @@ const App = () => {
             <PrivateRoute exact path='/profile' component={Profile} />
             <PrivateRoute exact path='/listings' component={Listings} />
             <PrivateRoute exact path='/add-listing' component={AddListing} />
+            <PrivateRoute exact path='/edit-listing' component={EditListing} />
           </Switch>
         </Fragment>
       </Router>

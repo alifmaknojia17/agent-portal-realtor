@@ -3,9 +3,7 @@ import setAuthToken from '../utils/setAuthToken';
 import { setAlert } from './alert';
 import {
   REGISTER_SUCCESS,
-  REGISTER_FAIL,
   LOGIN_SUCCESS,
-  LOGIN_FAIL,
   LOGOUT,
   AGENT_LOADED,
   AUTH_ERROR,
@@ -52,15 +50,8 @@ export const register = ({ fullName, email, password, phoneNumber }) => async (
 
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: REGISTER_FAIL,
-    });
+    const error = err.response.data;
+    dispatch(setAlert(error.msg, 'danger'));
   }
 };
 
@@ -84,15 +75,7 @@ export const login = (email, password) => async (dispatch) => {
 
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: LOGIN_FAIL,
-    });
+    dispatch(setAlert('Invalid Credentials', 'danger'));
   }
 };
 

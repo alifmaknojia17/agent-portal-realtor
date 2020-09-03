@@ -11,3 +11,4 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const LOGOUT = 'LOGOUT';
 export const EDIT_PASSWORD_ERROR = 'EDIT_PASSWORD_ERROR';
 export const UPLOAD_ERROR = 'UPLOAD_ERROR';
+export const LOAD_LISTINGS = 'LOAD_LISTINGS';

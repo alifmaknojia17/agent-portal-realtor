@@ -14,13 +14,14 @@ const Listings = ({ loadListings, listings: { allListings } }) => {
 
   const [filter, setFilter] = useState({
     listings: '',
+    checked: [],
   });
 
   const onListingTypeInputChange = (e) => {
     const listing = allListings.filter((listing) => {
       return listing.propertyDetails.listingType === e.target.value;
     });
-    setFilter({ filter, listings: listing });
+    setFilter({ ...filter, listings: listing });
   };
 
   const onPriceInputChange = (e) => {
@@ -32,7 +33,23 @@ const Listings = ({ loadListings, listings: { allListings } }) => {
     if (listing.length === 0 && e.target.value !== null) {
       listing = -1;
     }
-    setFilter({ filter, listings: listing });
+    setFilter({ ...filter, listings: listing });
+  };
+
+  const onHomeTypeInputChange = (e) => {
+    const currentIndex = filter.checked.indexOf(e.target.value);
+    const newChecked = [...filter.checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(e.target.value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    console.log(newChecked);
+    const listing = allListings.filter((listing) => {
+      return newChecked.includes(listing.factAndFeatures.propertyType);
+    });
+    setFilter({ ...filter, listings: listing, checked: newChecked });
   };
 
   return (
@@ -42,6 +59,7 @@ const Listings = ({ loadListings, listings: { allListings } }) => {
         <FilterListing
           onListingTypeInputChange={onListingTypeInputChange}
           onPriceInputChange={onPriceInputChange}
+          onHomeTypeInputChange={onHomeTypeInputChange}
         />
         <div className='listings'>
           {allListings.length > 0 && filter.listings.length <= 0

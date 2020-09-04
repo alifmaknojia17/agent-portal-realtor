@@ -17,22 +17,22 @@ const FactAndFeatures = ({ formData, onPropertyFactsAndFeaturesChange }) => {
           <option className='' value='default'>
             Property Type:
           </option>
-          <option className='' value='Single Family'>
+          <option className='' value='singleFamily'>
             Single Family
           </option>
-          <option className='' value='Multi Family'>
+          <option className='' value='multiFamily'>
             Multi Family
           </option>
-          <option className='' value='Condos'>
+          <option className='' value='condos'>
             Condos
           </option>
-          <option className='' value='Apartment'>
+          <option className='' value='apartment'>
             Apartment
           </option>
-          <option className='' value='Land'>
+          <option className='' value='land'>
             Land
           </option>
-          <option className='' value='Town Homes'>
+          <option className='' value='townHomes'>
             Town homes
           </option>
         </select>

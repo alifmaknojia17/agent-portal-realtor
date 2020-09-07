@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOAD_LISTINGS } from './types';
+import { LOAD_LISTINGS, DELETE_LISTING } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import { setAlert } from './alert';
 
@@ -68,5 +68,19 @@ export const updateListing = (data, listingId, history) => async (dispatch) => {
     history.push('/listings');
   } catch (err) {
     dispatch(setAlert('Cannot update listing', 'danger'));
+  }
+};
+
+export const deleteListing = (listingId) => async (dispatch) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+
+  try {
+    const res = await axios.delete(`/listings/delete/${listingId}`);
+    dispatch(loadListings());
+    dispatch(setAlert(res.data, 'success'));
+  } catch (err) {
+    dispatch(setAlert('Cannot delete listing at this time', 'danger'));
   }
 };

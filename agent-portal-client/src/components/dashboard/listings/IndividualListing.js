@@ -1,9 +1,16 @@
-import React, { Fragment, useEffect } from 'react';
-// import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
+import { deleteListing } from '../../../actions/listings';
 
-const IndividualListing = ({ listing }) => {
+const IndividualListing = ({ listing, deleteListing }) => {
+  const onDeleteListingBtnClick = (e) => {
+    console.log('button clicked', listing._id);
+    deleteListing(listing._id);
+  };
+
   return (
     <Fragment>
       <div className='individual-listing'>
@@ -56,7 +63,7 @@ const IndividualListing = ({ listing }) => {
               >
                 <i className='fa fa-edit'></i>
               </Link>
-              <button className='btn-listing'>
+              <button className='btn-listing' onClick={onDeleteListingBtnClick}>
                 <i className='fa fa-trash'></i>
               </button>
             </span>
@@ -67,6 +74,8 @@ const IndividualListing = ({ listing }) => {
   );
 };
 
-IndividualListing.propTypes = {};
+IndividualListing.propTypes = {
+  deleteListing: PropTypes.func.isRequired,
+};
 
-export default IndividualListing;
+export default connect(null, { deleteListing })(withRouter(IndividualListing));

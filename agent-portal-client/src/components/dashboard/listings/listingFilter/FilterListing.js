@@ -5,6 +5,8 @@ import Price from './listingFilterCategory/Price';
 import HomeType from './listingFilterCategory/HomeType';
 
 const FilterListing = ({
+  search,
+  onSearchInputChange,
   onListingTypeInputChange,
   onPriceInputChange,
   onHomeTypeInputChange,
@@ -12,7 +14,7 @@ const FilterListing = ({
   return (
     <Fragment>
       <div className='search'>
-        <Search />
+        <Search search={search} onSearchInputChange={onSearchInputChange} />
         <ListingType onListingTypeInputChange={onListingTypeInputChange} />
         <Price onPriceInputChange={onPriceInputChange} />
         <HomeType onHomeTypeInputChange={onHomeTypeInputChange} />

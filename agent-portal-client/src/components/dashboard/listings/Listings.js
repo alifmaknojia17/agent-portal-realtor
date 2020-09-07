@@ -8,14 +8,34 @@ import IndividualListing from './IndividualListing';
 import FilterListing from './listingFilter/FilterListing';
 
 const Listings = ({ loadListings, listings: { allListings } }) => {
-  useEffect(() => {
-    loadListings();
-  }, [loadListings]);
-
   const [filter, setFilter] = useState({
+    searchTerm: '',
     listings: '',
     checked: [],
   });
+
+  useEffect(() => {
+    loadListings();
+    console.log(filter.searchTerm);
+    if (allListings.length > 0) {
+      const listing = allListings.filter((listing) => {
+        return (
+          listing.propertyDetails.city
+            .toLowerCase()
+            .includes(filter.searchTerm) ||
+          listing.propertyDetails.state
+            .toLowerCase()
+            .includes(filter.searchTerm) ||
+          listing.propertyDetails.zip.includes(filter.searchTerm)
+        );
+      });
+      setFilter({ ...filter, listings: listing });
+    }
+  }, [loadListings, filter.searchTerm]);
+
+  const onSearchInputChange = (e) => {
+    setFilter({ ...filter, searchTerm: e.target.value });
+  };
 
   const onListingTypeInputChange = (e) => {
     const listing = allListings.filter((listing) => {
@@ -57,6 +77,8 @@ const Listings = ({ loadListings, listings: { allListings } }) => {
       <Navbar />
       <div className='outter-container'>
         <FilterListing
+          search={filter.search}
+          onSearchInputChange={onSearchInputChange}
           onListingTypeInputChange={onListingTypeInputChange}
           onPriceInputChange={onPriceInputChange}
           onHomeTypeInputChange={onHomeTypeInputChange}

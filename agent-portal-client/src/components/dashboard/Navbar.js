@@ -19,7 +19,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           </div>
           <div className='menu'>
             <div className='links'>
-              <ul className='nav-ul'>
+              <ul>
                 <li>
                   <Link to='/profile'>
                     <i className='fa fa-user'></i> Profile
@@ -38,10 +38,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
               </ul>
             </div>
             <div className='btns'>
-              <button
-                className='btn btn-menu btn-signup'
-                onClick={(e) => onLogoutClick(e)}
-              >
+              <button className='btn' onClick={(e) => onLogoutClick(e)}>
                 <i className='fa fa-sign-out'></i>
                 Logout
               </button>

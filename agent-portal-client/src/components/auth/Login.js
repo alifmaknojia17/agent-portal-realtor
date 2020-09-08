@@ -31,18 +31,12 @@ const Login = ({ login, isAuthenticated }) => {
     <Fragment>
       <div className='landing-page'>
         <Navbar />
-        <form
-          className='jumbotron login-form'
-          id='form'
-          onSubmit={(e) => onSubmit(e)}
-        >
+        <form className='auth-form' id='form' onSubmit={(e) => onSubmit(e)}>
           <div className='form-inputs'>
             <Alert />
-            <label className='text-1' for='form'>
-              Login
-            </label>
+            <label for='form'>Login</label>
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Email'
               name='email'
               value={email}
@@ -50,7 +44,7 @@ const Login = ({ login, isAuthenticated }) => {
               required
             />
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Password'
               type='password'
               name='password'
@@ -58,22 +52,18 @@ const Login = ({ login, isAuthenticated }) => {
               onChange={(e) => onChange(e)}
               required
             />
-            <input
-              className='btn btn-jumbo-signup btn-submit-login'
-              type='submit'
-              value='Login'
-            />
+            <input className='btn-submit' type='submit' value='Login' />
           </div>
           <div className='form-option-1'>
-            <span className='text-2'>Or login with</span>
+            <span>Or login with</span>
             <div className='social'>
-              <a className='facebook-btn' href='#'>
+              <a href='#'>
                 <i className='fa fa-facebook'></i>
               </a>
-              <a className='google-btn' href='#'>
+              <a href='#'>
                 <i className='fa fa-google'></i>
               </a>
-              <a className='twitter-btn' href='#'>
+              <a href='#'>
                 <i className='fa fa-twitter'></i>
               </a>
             </div>

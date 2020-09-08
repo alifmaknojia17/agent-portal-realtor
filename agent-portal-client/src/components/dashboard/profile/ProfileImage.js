@@ -44,10 +44,7 @@ const ProfileImage = ({ loadUser, profilePic, agent }) => {
             onChange={(e) => onChangeImage(e)}
           />
           <br />
-          <button
-            className='btn btn-jumbo-signup btn-upload'
-            onClick={(e) => onClickUpload(e)}
-          >
+          <button className='btn-upload' onClick={(e) => onClickUpload(e)}>
             Upload
           </button>
         </div>

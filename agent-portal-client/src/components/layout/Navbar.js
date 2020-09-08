@@ -25,12 +25,12 @@ const Navbar = () => {
             </ul>
           </div>
           <div className='btns'>
-            <button className='btn btn-menu btn-signin'>
+            <button className='btn'>
               <Link to='/register' className='Link-Auth-Btn'>
                 Register
               </Link>
             </button>
-            <button className='btn btn-menu btn-login'>
+            <button className='btn'>
               <Link to='login' className='Link-Auth-Btn'>
                 Login
               </Link>

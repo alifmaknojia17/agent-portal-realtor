@@ -1,0 +1,306 @@
+@import './base/settings';
+@import './base/base';
+//component
+//layout
+@import './components/layout/alert';
+@import './components/layout/navbar';
+@import './components/layout/home';
+@import './components/layout/contact';
+//auth
+@import './components/auth/auth';
+//dashboard
+//navbar
+@import './components/dashboard/navbar';
+//profile
+@import './components/dashboard/profile/profile';
+
+/*----------Extra----------*/
+
+.modal-wrapper-listing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-backdrop-listing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-box-listing {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 90vh;
+  width: 90%;
+  overflow-y: auto;
+  background-color: $white;
+  box-shadow: 0 0 $tiny rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  padding: $small;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  border-radius: $small;
+}
+
+.close-modal-listing {
+  position: absolute;
+  top: 3%;
+  left: 97%;
+  background-color: $off-white;
+  border: none;
+}
+
+.close-modal-listing i {
+  font-size: $small;
+  transition: transform 0.2s;
+  color: $teal;
+}
+
+.close-modal-listing i:hover {
+  transform: scale(1.5);
+}
+
+.modal-listing {
+  display: flex;
+  justify-content: space-around;
+  height: 90vh;
+}
+
+.modal-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+/*----------Extra END----------*/
+
+/*----------LOGIN FORM ----------*/
+
+/*----------LOGIN FORM END----------*/
+
+/*-----Contact Page-----*/
+
+/*-----Contact Page END-----*/
+
+/*----------Profile Page----------*/
+
+/*----------Profile Page END----------*/
+
+/*----------Listing Page----------*/
+.outter-container {
+  background-color: $off-white;
+  display: flex;
+  justify-content: start;
+  max-height: 100vh;
+}
+/*---Search Criteria---*/
+.search {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-top: $xxmedium;
+  padding: 0 $small $small $small;
+  border-right: $xxtiny solid $light-gray;
+  overflow-y: scroll;
+}
+
+.search-criteria {
+  position: relative;
+  top: $tiny;
+  padding-bottom: $tiny;
+  border-bottom: $xxtiny solid $light-gray;
+}
+
+.search-input {
+  height: $xxmedium;
+  width: 250px;
+}
+
+.search-btn {
+  position: absolute;
+  top: $xtiny;
+  left: 220px;
+  background-color: $white;
+  border: none;
+}
+
+.search-btn i {
+  color: $gray;
+}
+
+.filter-for,
+.filter-price,
+.filter-home-type {
+  padding: 0 $small $small $tiny;
+  border-bottom: $xxtiny solid $light-gray;
+}
+
+.filter-btn-div {
+  margin: $xtiny auto $xtiny auto;
+}
+/*---Search Criteria End---*/
+
+/*---Individual Listing---*/
+.listings {
+  display: flex;
+  justify-content: flex-start;
+  width: 1000px;
+  flex-wrap: wrap;
+  margin: 0 auto $small auto;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.individual-listing {
+  border: $xxtiny solid $light-gray;
+  margin: 5% $tiny 0 $tiny;
+  width: 420px;
+  height: 450px;
+  padding-top: $tiny;
+  padding-left: $xxsmall;
+  margin-bottom: $tiny;
+}
+
+.price {
+  font-weight: bold;
+  font-size: $xxmedium;
+  margin-right: 90px;
+}
+
+.detail {
+  padding-right: $tiny;
+  font-size: $xxsmall;
+  font-weight: 500;
+}
+
+#listing-type {
+  font-size: $xxsmall;
+}
+
+#listing-type i {
+  color: $red;
+  font-size: $xxsmall;
+  margin-top: -5px;
+}
+
+.btn-listing {
+  background-color: $white;
+  border: none;
+  color: $black;
+}
+
+.btn-listing i {
+  font-size: $small;
+}
+
+.listing-btns {
+  margin-left: 50%;
+}
+/*---Individual Listing End---*/
+/*----------Listing Page END----------*/
+
+/*----------Add Listing Page----------*/
+/*---Add Listing Details---*/
+.add-listing-container {
+  background-color: $off-white;
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+}
+
+.add-listing-details,
+.add-listing-images {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-top: $xxmedium;
+}
+
+.add-listing-details {
+  border-right: $xxtiny solid black;
+  padding-right: $small;
+  margin: $xxmedium $small 0 $small;
+  height: 100vh;
+}
+
+.all-details {
+  overflow-y: auto;
+}
+
+.property-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.property-details-input {
+  height: $small;
+  margin-bottom: $tiny;
+}
+
+.property-overview-textarea {
+  width: 98%;
+  height: $large;
+  resize: none;
+}
+
+.property-facts-features-input,
+.property-nearby-school-input {
+  height: $small;
+}
+
+.property-nearby-things-input {
+  width: 100%;
+  height: $small;
+  margin-bottom: $tiny;
+}
+
+.btn-save {
+  padding: $tiny;
+  width: 80px;
+  height: $xmedium;
+  margin: 0 auto $xmedium auto;
+}
+/*---Add Listing Details END---*/
+
+/*---Add Listing Images---*/
+.add-listing-images {
+  padding-right: $small;
+  margin: $xxmedium $small 0 $small;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.listing-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 2;
+  max-width: 750px;
+  overflow-y: scroll;
+}
+
+.listing-images img {
+  margin-top: $xxsmall;
+  width: 350px;
+  height: 250px;
+}
+
+.btn-add-listing-edit {
+  margin-bottom: $small;
+}
+
+.btn-save-image {
+  margin-top: $small;
+}
+/*---Add Listing Images END---*/
+/*----------Add Listing Page END----------*/

@@ -7,21 +7,17 @@ const Home = () => (
     <div className='landing-page'>
       <Navbar />
       <div className='jumbotron'>
-        <p className='jumbotron-p jumbotron-p-1'>REALTOR PORTAL</p>
-        <p className='jumbotron-p jumbotron-p-2'>
+        <p className='jumbotron-p-1'>REALTOR PORTAL</p>
+        <p className='jumbotron-p-2'>
           Create your real estate portfolio. Share your listing to potential
           buyers
         </p>
         <div className='btns'>
-          <button className='btn btn-jumbo-signup'>
-            <Link to='/register' className='Link-Auth-Btn-Register'>
-              Register
-            </Link>
+          <button className='btn-jumbo'>
+            <Link to='/register'>Register</Link>
           </button>
-          <button className='btn btn-jumbo-login'>
-            <Link to='/login' className='Link-Auth-Btn-Login'>
-              Login
-            </Link>
+          <button className='btn-jumbo'>
+            <Link to='/login'>Login</Link>
           </button>
         </div>
       </div>

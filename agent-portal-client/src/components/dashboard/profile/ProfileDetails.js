@@ -42,32 +42,30 @@ const ProfileDetails = ({ loadUser, editProfile, agent }) => {
   return (
     <Fragment>
       <div className='profile-data'>
-        <button
-          className='btn btn-jumbo-signup btn-edit-profile'
-          onClick={openModal}
-        >
+        <button className='btn-edit-profile' onClick={openModal}>
           Edit Profile
         </button>
+
         <Modal ref={modalRef}>
-          <h3 className='text-1 h3-modal'>Change Profile</h3>
+          <h3>Change Profile</h3>
           <br />
           <form onSubmit={(e) => onSubmit(e)} className='modal-form'>
             <input
-              className='modal-edit-profile-input credentials'
+              className='profile-edit-modal-input'
               name='fullName'
               value={fullName}
               onChange={(e) => onChange(e)}
             />
             <br />
             <input
-              className='modal-edit-profile-input credentials'
+              className='profile-edit-modal-input'
               name='email'
               value={email}
               onChange={(e) => onChange(e)}
             />
             <br />
             <input
-              className='modal-edit-profile-input credentials'
+              className='profile-edit-modal-input'
               name='phoneNumber'
               value={phoneNumber}
               onChange={(e) => onChange(e)}
@@ -82,6 +80,7 @@ const ProfileDetails = ({ loadUser, editProfile, agent }) => {
             X
           </button>
         </Modal>
+
         <p className='profile-text profile-details'>
           <strong>Name:</strong> {agent && agent.fullName}
         </p>

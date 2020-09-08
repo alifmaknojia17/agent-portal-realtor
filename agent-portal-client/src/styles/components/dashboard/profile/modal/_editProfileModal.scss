@@ -1,0 +1,94 @@
+@import '../../../../base/settings';
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-box {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 35%;
+  width: 18%;
+  overflow-y: auto;
+  background-color: $white;
+  box-shadow: 0 0 $tiny rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  padding: $small;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  border-radius: $small;
+}
+
+.modal-box {
+  h3 {
+    margin: 0 auto;
+    color: $teal;
+    padding: $tiny;
+    font-weight: 100;
+  }
+
+  .modal-form {
+    flex-grow: 2;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+
+    input {
+      border: $xxtiny solid $light-teal;
+      border-radius: $small;
+      box-shadow: $xxtiny $xxtiny $light-teal;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    .modal-save {
+      background-color: $teal;
+      border: none;
+      color: $white;
+      margin: 0 auto;
+      width: 20%;
+      height: $xxmedium;
+      font-size: $xxsmall;
+
+      &:hover {
+        background-color: $light-teal;
+      }
+    }
+  }
+  .close-modal {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    background-color: $off-white;
+    border: none;
+
+    &:hover {
+      background-color: $light-teal;
+    }
+  }
+}
+
+.profile-edit-modal-input {
+  margin-top: $tiny;
+  font-size: $small;
+  padding: $tiny;
+}

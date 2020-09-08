@@ -37,9 +37,7 @@ const ProfilePassword = ({ changePassword, setAlert }) => {
       >
         <p htmlFor='change-password'>Change Password</p>
         <Alert />
-        <label className='profile-text' htmlFor='current'>
-          Current Password:
-        </label>
+        <label htmlFor='current'>Current Password:</label>
         <input
           className='change-password-input'
           type='password'
@@ -47,9 +45,7 @@ const ProfilePassword = ({ changePassword, setAlert }) => {
           value={currentPassword}
           onChange={(e) => onPasswordChange(e)}
         />
-        <label className='profile-text' htmlFor='newPassword'>
-          New Password:{' '}
-        </label>
+        <label htmlFor='newPassword'>New Password: </label>
         <input
           className='change-password-input'
           type='password'
@@ -57,9 +53,7 @@ const ProfilePassword = ({ changePassword, setAlert }) => {
           value={newPassword}
           onChange={(e) => onPasswordChange(e)}
         />
-        <label className='profile-text' htmlFor='confirmPassword'>
-          Re-type new password:
-        </label>
+        <label htmlFor='confirmPassword'>Re-type new password:</label>
         <input
           className='change-password-input'
           type='password'
@@ -67,11 +61,7 @@ const ProfilePassword = ({ changePassword, setAlert }) => {
           value={confirmPassword}
           onChange={(e) => onPasswordChange(e)}
         />
-        <input
-          className='btn btn-jumbo-signup btn-save-changes'
-          type='submit'
-          value='Save Changes'
-        />
+        <input className='btn-submit' type='submit' value='Save' />
       </form>
     </Fragment>
   );

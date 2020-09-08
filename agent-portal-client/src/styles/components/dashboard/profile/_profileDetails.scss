@@ -1,0 +1,33 @@
+@import '../../../base/settings';
+@import './modal/editProfileModal';
+
+.profile-data {
+  display: flex;
+  flex-flow: column;
+
+  p {
+    padding: $tiny;
+    border-bottom: $xxtiny solid $light-gray;
+    font-size: 1em;
+  }
+}
+
+.btn-edit-profile {
+  margin: 0 auto 0 auto;
+  font-size: $xxsmall;
+  background: none;
+  color: $white;
+  border: none;
+  font-size: $small;
+  width: 120px;
+  height: $medium;
+  background-color: $light-teal;
+
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    color: $light-gray;
+    cursor: pointer;
+  }
+}

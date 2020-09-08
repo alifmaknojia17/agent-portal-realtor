@@ -1,0 +1,113 @@
+@import '../../base/settings';
+
+.auth-form {
+  display: flex;
+  flex-flow: column;
+  width: 25%;
+  height: auto;
+  background-color: $white;
+  color: $black;
+  justify-content: space-between;
+  position: fixed;
+  border-radius: $tiny;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.form-inputs {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-top: 10%;
+  height: auto;
+
+  label {
+    color: $teal;
+    padding: $tiny;
+    font-weight: 300;
+    font-size: $xmedium;
+  }
+
+  input {
+    border: $xxtiny solid $light-teal;
+    border-radius: $small;
+    margin-top: $small;
+    font-size: $small;
+    padding: $tiny;
+    box-shadow: $xxtiny $xxtiny $light-teal;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.auth-inputs {
+  margin: $small $small 0 $small;
+}
+
+.btn-submit {
+  margin: 0 auto 0 auto;
+  font-size: $xxsmall;
+  background: none;
+  color: $white;
+  border: none;
+  font-size: $small;
+  width: 120px;
+  height: $medium;
+  background-color: $light-teal;
+
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    color: $light-gray;
+    cursor: pointer;
+  }
+}
+
+.form-option-1 {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  margin-top: 5%;
+
+  span {
+    color: $teal;
+    padding: $tiny;
+    font-weight: 100;
+    font-size: $xsmall;
+  }
+
+  .social {
+    a {
+      background-color: $teal;
+      box-shadow: 0 $xtiny $small 0 rgba(0, 0, 0, 0.2);
+      margin: $xtiny;
+
+      i {
+        color: $white;
+        width: $xmedium;
+        height: $medium;
+      }
+    }
+  }
+}
+
+.text-3 {
+  color: $teal;
+  padding: $tiny;
+  font-weight: 100;
+  font-size: $xsmall;
+  text-decoration: none;
+  margin-top: 10%;
+
+  a {
+    text-decoration: none;
+    color: $teal;
+  }
+}

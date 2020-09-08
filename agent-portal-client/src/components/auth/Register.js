@@ -39,19 +39,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <div className='landing-page'>
         <Navbar />
-        <form
-          className='jumbotron login-form'
-          id='form'
-          onSubmit={(e) => onSubmit(e)}
-        >
+        <form className='auth-form' id='form' onSubmit={(e) => onSubmit(e)}>
           <div className='form-inputs'>
             <Alert />
-            <label className='text-1' htmlFor='form'>
-              Register
-            </label>
+            <label htmlFor='form'>Register</label>
 
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Full Name'
               name='fullName'
               value={fullName}
@@ -59,7 +53,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Email'
               name='email'
               value={email}
@@ -67,7 +61,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Password'
               type='password'
               name='password'
@@ -76,7 +70,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Confirm Password'
               type='password'
               name='password2'
@@ -85,18 +79,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
             <input
-              className='credentials'
+              className='auth-inputs'
               placeholder='Phone Number'
               name='phoneNumber'
               value={phoneNumber}
               onChange={(e) => onChange(e)}
               required
             />
-            <input
-              className='btn btn-jumbo-signup btn-submit-login'
-              type='submit'
-              value='Register'
-            />
+            <input className='btn-submit' type='submit' value='Register' />
           </div>
           <div className='text-3'>
             <Link to='login'>Already have an account? Login</Link>

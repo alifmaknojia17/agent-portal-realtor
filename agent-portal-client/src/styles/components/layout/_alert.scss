@@ -1,0 +1,20 @@
+@import '../../base/settings';
+
+.alert {
+  padding: 1rem;
+  border-radius: $small;
+  opacity: 0.9;
+  color: $gray;
+}
+
+.danger {
+  background: $red;
+  color: $white;
+  margin: 0 auto;
+}
+
+.success {
+  background: $green;
+  color: $white;
+  margin: 0 auto;
+}

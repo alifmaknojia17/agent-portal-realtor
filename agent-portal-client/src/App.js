@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './styles/App.css';
 import Home from '../src/components/layout/Home';
 import About from '../src/components/layout/About';
 import Contact from '../src/components/layout/Contact';

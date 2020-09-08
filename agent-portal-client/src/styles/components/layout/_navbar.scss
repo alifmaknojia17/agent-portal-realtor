@@ -1,0 +1,71 @@
+@import '../../base/settings';
+
+.navbar {
+  display: flex;
+}
+
+.logo {
+  img {
+    margin: $tiny 0 0 $small;
+  }
+  a:hover {
+    color: $white;
+    cursor: default;
+  }
+}
+
+.menu {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-evenly;
+
+  .links {
+    flex-grow: 2;
+    display: inline;
+  }
+  ul {
+    margin-top: 45px;
+
+    li {
+      text-decoration: none;
+      display: inline;
+      margin: 0 $medium 0 $medium;
+
+      a {
+        text-decoration: none;
+        color: $white;
+
+        &:hover {
+          color: $light-teal;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .btns {
+    margin: $xxmedium $xxmedium 0 0;
+  }
+}
+
+.btn {
+  background: none;
+  color: $white;
+  border: none;
+  font-size: $small;
+  width: 120px;
+  height: $medium;
+
+  &:hover {
+    color: $light-teal;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: $white;
+
+    &:hover {
+      color: $light-teal;
+      cursor: pointer;
+    }
+  }
+}

@@ -6,44 +6,34 @@ const Contact = () => (
     <div className='landing-page'>
       <Navbar />
       <div className='contact-form-div'>
-        <form className='contact-us-form login-form'>
-          <div className='form-inputs'>
-            <label className='text-1 contact-us-label' for='form'>
-              Contact Us
-            </label>
-            <input className='credentials' placeholder='Full Name' />
-            <input className='credentials' placeholder='Email' />
-            <input className='credentials' placeholder='Phone Number' />
+        <form className='contact-us-form'>
+          <div className='contact-form-inputs'>
+            <label for='form'>Contact Us</label>
+            <input className='contact-input' placeholder='Full Name' />
+            <input className='contact-input' placeholder='Email' />
+            <input className='contact-input' placeholder='Phone Number' />
             <textarea
-              className='credentials'
+              className='contact-input'
               placeholder='Describe briefly how can we help you?'
             ></textarea>
             <div className='preferred-div'>
-              <span className='text-2'>Preferred Contact: </span>
+              <span>Preferred Contact: </span>
               <input
-                className='credentials preferred-checkbox'
+                className='contact-input'
                 type='checkbox'
                 name='preferredChoice'
                 value='email'
               />
-              <label className='text-2' for='email'>
-                Email?
-              </label>
+              <label for='email'>Email?</label>
               <input
-                className='credentials preferred-checkbox'
+                className='contact-input'
                 type='checkbox'
                 name='preferredChoice'
                 value='phone'
               />
-              <label className='text-2' for='phone'>
-                Phone?
-              </label>
+              <label for='phone'>Phone?</label>
             </div>
-            <input
-              className='btn btn-jumbo-signup btn-submit-login'
-              type='submit'
-              value='Send'
-            />
+            <input className='btn-submit' type='submit' value='Send' />
           </div>
         </form>
         <div className='contact-us-support'>
@@ -51,7 +41,7 @@ const Contact = () => (
           <p>For support or any questions:</p>
           <p>
             Email us at:{'  '}
-            <span className='emailSupport'>alifmaknojia17@yahoo.com</span>
+            <span>alifmaknojia17@yahoo.com</span>
           </p>
         </div>
       </div>

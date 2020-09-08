@@ -4,6 +4,9 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { deleteListing } from '../../../actions/listings';
+import Modal from './modal/ListingModal';
+import ModalListingDetails from './modal/modalItems/modalDetails/ModalListingDetails';
+import ModalListingImages from './modal/modalItems/modalImages/ModalListingImages';
 
 const IndividualListing = ({ listing, deleteListing }) => {
   const onDeleteListingBtnClick = (e) => {
@@ -11,9 +14,32 @@ const IndividualListing = ({ listing, deleteListing }) => {
     deleteListing(listing._id);
   };
 
+  const onIndividualListingClick = () => {
+    console.log('individual clicked');
+    openModal();
+  };
+
+  const modalRef = React.useRef();
+  const openModal = () => {
+    modalRef.current.openModal();
+  };
+
   return (
     <Fragment>
-      <div className='individual-listing'>
+      <Modal ref={modalRef}>
+        <div className='modal-listing'>
+          <ModalListingDetails listing={listing} />
+          <ModalListingImages />
+          <button
+            className='close-modal-listing'
+            onClick={() => modalRef.current.close()}
+          >
+            <i class='fa fa-window-close'></i>
+          </button>
+        </div>
+      </Modal>
+
+      <div className='individual-listing' onClick={onIndividualListingClick}>
         <img
           src='./building.JPG'
           alt='Building Image'

@@ -15,7 +15,6 @@ const IndividualListing = ({ listing, deleteListing }) => {
   };
 
   const onIndividualListingClick = () => {
-    console.log('individual clicked');
     openModal();
   };
 

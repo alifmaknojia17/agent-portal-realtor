@@ -496,6 +496,72 @@ body {
 .modal-save:hover {
   background-color: #00b3b3;
 }
+
+.modal-wrapper-listing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-backdrop-listing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-box-listing {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 90vh;
+  width: 90%;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+.close-modal-listing {
+  position: absolute;
+  top: 3%;
+  left: 97%;
+  background-color: #fcffff;
+  border: none;
+}
+
+.close-modal-listing i {
+  font-size: 20px;
+  transition: transform 0.2s;
+  color: #008080;
+}
+
+.close-modal-listing i:hover {
+  transform: scale(1.5);
+}
+
+.modal-listing {
+  display: flex;
+  justify-content: space-around;
+  height: 90vh;
+}
+
+.modal-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
 /*----------Profile Page END----------*/
 
 /*----------Listing Page----------*/

@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import NumberFormat from 'react-number-format';
 
 const ModalListingDetails = ({ listing }) => {
-  console.log(listing);
   return (
     <Fragment>
       <div className='modal-listing-details'>

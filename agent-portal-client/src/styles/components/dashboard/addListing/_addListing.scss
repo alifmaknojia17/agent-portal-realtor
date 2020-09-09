@@ -1,0 +1,10 @@
+@import '../../../base/settings';
+@import './addListingDetails/addListingDetails';
+@import './addListingImages/addListingImages';
+
+.add-listing-container {
+  background-color: $off-white;
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+}

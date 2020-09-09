@@ -1,0 +1,16 @@
+@import '../../../../../base/settings';
+
+.property-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+
+  input {
+    height: $small;
+    margin-bottom: $tiny;
+  }
+  select {
+    height: $small;
+    margin-bottom: $tiny;
+  }
+}

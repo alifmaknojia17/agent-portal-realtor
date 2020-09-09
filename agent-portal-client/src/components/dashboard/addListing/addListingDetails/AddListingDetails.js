@@ -93,10 +93,7 @@ const AddListingDetails = ({ createListing, history }) => {
             onPropertyNearbyThingsChange={onInputChange}
           />
         </div>
-        <button
-          class='btn btn-jumbo-signup btn-save'
-          onClick={onSavePropertyDetailsClick}
-        >
+        <button class='btn-save' onClick={onSavePropertyDetailsClick}>
           Save
         </button>
       </div>

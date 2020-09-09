@@ -13,6 +13,8 @@
 @import './components/dashboard/navbar';
 //profile
 @import './components/dashboard/profile/profile';
+//add listing
+@import './components/dashboard/addListing/addListing';
 
 /*----------Extra----------*/
 
@@ -210,97 +212,6 @@
 
 /*----------Add Listing Page----------*/
 /*---Add Listing Details---*/
-.add-listing-container {
-  background-color: $off-white;
-  display: flex;
-  justify-content: space-around;
-  height: auto;
-}
 
-.add-listing-details,
-.add-listing-images {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  margin-top: $xxmedium;
-}
-
-.add-listing-details {
-  border-right: $xxtiny solid black;
-  padding-right: $small;
-  margin: $xxmedium $small 0 $small;
-  height: 100vh;
-}
-
-.all-details {
-  overflow-y: auto;
-}
-
-.property-details {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-}
-
-.property-details-input {
-  height: $small;
-  margin-bottom: $tiny;
-}
-
-.property-overview-textarea {
-  width: 98%;
-  height: $large;
-  resize: none;
-}
-
-.property-facts-features-input,
-.property-nearby-school-input {
-  height: $small;
-}
-
-.property-nearby-things-input {
-  width: 100%;
-  height: $small;
-  margin-bottom: $tiny;
-}
-
-.btn-save {
-  padding: $tiny;
-  width: 80px;
-  height: $xmedium;
-  margin: 0 auto $xmedium auto;
-}
-/*---Add Listing Details END---*/
-
-/*---Add Listing Images---*/
-.add-listing-images {
-  padding-right: $small;
-  margin: $xxmedium $small 0 $small;
-  height: 100vh;
-  overflow-y: auto;
-}
-
-.listing-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  flex-grow: 2;
-  max-width: 750px;
-  overflow-y: scroll;
-}
-
-.listing-images img {
-  margin-top: $xxsmall;
-  width: 350px;
-  height: 250px;
-}
-
-.btn-add-listing-edit {
-  margin-bottom: $small;
-}
-
-.btn-save-image {
-  margin-top: $small;
-}
 /*---Add Listing Images END---*/
 /*----------Add Listing Page END----------*/

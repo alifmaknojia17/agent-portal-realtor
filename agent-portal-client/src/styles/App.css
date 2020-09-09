@@ -531,6 +531,112 @@ body {
   height: auto;
   margin: 100px 5% 5px 5%; }
 
+.property-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around; }
+  .property-details input {
+    height: 20px;
+    margin-bottom: 10px; }
+  .property-details select {
+    height: 20px;
+    margin-bottom: 10px; }
+
+.property-overview textarea {
+  width: 98%;
+  height: 100px;
+  resize: none; }
+
+.property-facts-features input {
+  height: 20px; }
+.property-facts-features select {
+  height: 20px; }
+
+.property-nearby-school input {
+  height: 20px; }
+
+.property-nearby-things input {
+  width: 98%;
+  height: 20px;
+  margin-bottom: 10px; }
+
+.add-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  border-right: 1px solid black;
+  padding-right: 20px;
+  margin: 30px 20px 0 20px;
+  height: 100vh;
+  align-items: center; }
+  .add-listing-details .all-details {
+    overflow-y: auto; }
+    .add-listing-details .all-details input {
+      margin-right: 5px; }
+    .add-listing-details .all-details select {
+      margin-right: 5px; }
+  .add-listing-details .btn-save {
+    margin: 0 auto 40px auto;
+    font-size: 15px;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    background-color: #00b3b3;
+    padding: 10px; }
+    .add-listing-details .btn-save:focus {
+      outline: none; }
+    .add-listing-details .btn-save:hover {
+      color: #666f6d;
+      cursor: pointer; }
+
+.add-listing-images {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  padding-right: 20px;
+  margin: 30px 20px 0 20px;
+  height: 100vh;
+  overflow-y: auto; }
+  .add-listing-images .btn-image {
+    margin: 0 auto 20px auto;
+    font-size: 15px;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    background-color: #00b3b3; }
+    .add-listing-images .btn-image:focus {
+      outline: none; }
+    .add-listing-images .btn-image:hover {
+      color: #666f6d;
+      cursor: pointer; }
+  .add-listing-images .btn-add-listing-edit {
+    margin: 0 auto 20px auto; }
+  .add-listing-images .listing-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 2;
+    max-width: 750px;
+    overflow-y: scroll;
+    margin-bottom: 20px; }
+    .add-listing-images .listing-images img {
+      margin-top: 15px;
+      width: 350px;
+      height: 250px; }
+
+.add-listing-container {
+  background-color: #fcffff;
+  display: flex;
+  justify-content: space-around;
+  height: auto; }
+
 /*----------Extra----------*/
 .modal-wrapper-listing {
   position: fixed;
@@ -696,84 +802,6 @@ body {
 /*----------Listing Page END----------*/
 /*----------Add Listing Page----------*/
 /*---Add Listing Details---*/
-.add-listing-container {
-  background-color: #fcffff;
-  display: flex;
-  justify-content: space-around;
-  height: auto; }
-
-.add-listing-details,
-.add-listing-images {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  margin-top: 30px; }
-
-.add-listing-details {
-  border-right: 1px solid black;
-  padding-right: 20px;
-  margin: 30px 20px 0 20px;
-  height: 100vh; }
-
-.all-details {
-  overflow-y: auto; }
-
-.property-details {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around; }
-
-.property-details-input {
-  height: 20px;
-  margin-bottom: 10px; }
-
-.property-overview-textarea {
-  width: 98%;
-  height: 100px;
-  resize: none; }
-
-.property-facts-features-input,
-.property-nearby-school-input {
-  height: 20px; }
-
-.property-nearby-things-input {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 10px; }
-
-.btn-save {
-  padding: 10px;
-  width: 80px;
-  height: 40px;
-  margin: 0 auto 40px auto; }
-
-/*---Add Listing Details END---*/
-/*---Add Listing Images---*/
-.add-listing-images {
-  padding-right: 20px;
-  margin: 30px 20px 0 20px;
-  height: 100vh;
-  overflow-y: auto; }
-
-.listing-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  flex-grow: 2;
-  max-width: 750px;
-  overflow-y: scroll; }
-
-.listing-images img {
-  margin-top: 15px;
-  width: 350px;
-  height: 250px; }
-
-.btn-add-listing-edit {
-  margin-bottom: 20px; }
-
-.btn-save-image {
-  margin-top: 20px; }
-
 /*---Add Listing Images END---*/
 /*----------Add Listing Page END----------*/
 

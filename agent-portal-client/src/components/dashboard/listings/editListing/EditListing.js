@@ -10,7 +10,7 @@ const EditListing = (props) => {
       <Navbar />
       <div class='edit-listing-container'>
         <EditListingDetails listing={listing} />
-        <EditListingImages />
+        <EditListingImages listing={listing} />
       </div>
     </Fragment>
   );

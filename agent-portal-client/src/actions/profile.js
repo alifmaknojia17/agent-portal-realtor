@@ -69,7 +69,6 @@ export const profilePic = (data) => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
-  console.log(data);
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data',

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOAD_LISTINGS, DELETE_LISTING } from './types';
+import { LOAD_LISTINGS } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import { setAlert } from './alert';
 
@@ -82,5 +82,24 @@ export const deleteListing = (listingId) => async (dispatch) => {
     dispatch(setAlert(res.data, 'success'));
   } catch (err) {
     dispatch(setAlert('Cannot delete listing at this time', 'danger'));
+  }
+};
+
+export const listingImages = (data, listingId) => async (dispatch) => {
+  console.log('data', data, 'listingId', listingId);
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  };
+
+  try {
+    const res = await axios.post(`images/${listingId}`, data, config);
+    console.log(res.data);
+  } catch (err) {
+    console.log(err);
   }
 };

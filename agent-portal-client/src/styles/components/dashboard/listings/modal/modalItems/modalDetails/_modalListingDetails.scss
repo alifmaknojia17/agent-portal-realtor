@@ -3,7 +3,11 @@
 .modal-listing-details {
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding-right: 10%;
+  border-right: 1px solid $gray;
+  overflow-y: auto;
+  max-width: 25%;
 
   .price {
     font-weight: bold;
@@ -14,5 +18,9 @@
     padding-right: $tiny;
     font-size: $xxsmall;
     font-weight: 500;
+  }
+  h3 {
+    margin-bottom: $tiny;
+    border-bottom: 1px solid $light-gray;
   }
 }

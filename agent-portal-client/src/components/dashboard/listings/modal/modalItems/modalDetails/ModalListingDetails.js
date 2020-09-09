@@ -32,16 +32,27 @@ const ModalListingDetails = ({ listing }) => {
         </div>
         <div>
           <span>
-            <strong>Overview</strong>
-            <br />
+            <h3>Overview</h3>
             {listing.overview}
           </span>
         </div>
         <div>
           <span>
-            <strong>Facts and features</strong>
-            <br />
-            Type: {listing.factAndFeatures.propertyType}
+            <h3>Facts and features</h3>
+            Type:{' '}
+            {listing.factAndFeatures.propertyType === 'singleFamily'
+              ? 'Single Family'
+              : listing.factAndFeatures.propertyType === 'multiFamily'
+              ? 'Multi Family'
+              : listing.factAndFeatures.propertyType === 'condos'
+              ? 'Condos'
+              : listing.factAndFeatures.propertyType === 'apartment'
+              ? 'Apartment'
+              : listing.factAndFeatures.propertyType === 'land'
+              ? 'Land'
+              : listing.factAndFeatures.propertyType === 'townHomes'
+              ? 'Town Homes'
+              : ''}
             <br />
             Year built: {listing.factAndFeatures.yearBuilt}
             <br />
@@ -51,8 +62,7 @@ const ModalListingDetails = ({ listing }) => {
           </span>
         </div>
         <div>
-          <strong>Near by schools</strong>
-          <br />
+          <h3>Near by schools</h3>
           <span>{listing.school.schoolName}</span>
           <br />
           <span>
@@ -60,8 +70,7 @@ const ModalListingDetails = ({ listing }) => {
           </span>
         </div>
         <div>
-          <strong>Things near by</strong>
-          <br />
+          <h3>Things near by</h3>
           <span>{listing.nearBy}</span>
         </div>
       </div>

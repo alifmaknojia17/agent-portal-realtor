@@ -1,7 +1,8 @@
 @import '../../../../../../base/settings';
 
-.modal-listing-details {
+.modal-listing-image {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+  flex-grow: 2;
 }

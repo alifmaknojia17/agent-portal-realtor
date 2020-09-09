@@ -14,12 +14,12 @@ const FactAndFeatures = ({ formData, onPropertyFactsAndFeaturesChange }) => {
           onChange={onPropertyFactsAndFeaturesChange}
         >
           <option value='default'>Property Type:</option>
-          <option value='Single Family'>Single Family</option>
-          <option value='Multi Family'>Multi Family</option>
-          <option value='Condos'>Condos</option>
-          <option value='Apartment'>Apartment</option>
-          <option value='Land'>Land</option>
-          <option value='Town Homes'>Town homes</option>
+          <option value='singleFamily'>Single Family</option>
+          <option value='multiFamily'>Multi Family</option>
+          <option value='condos'>Condos</option>
+          <option value='apartment'>Apartment</option>
+          <option value='land'>Land</option>
+          <option value='townHomes'>Town homes</option>
         </select>
         <input
           placeholder='year built'

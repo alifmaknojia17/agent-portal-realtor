@@ -39,12 +39,12 @@ const IndividualListing = ({ listing, deleteListing }) => {
       </Modal>
 
       <div className='individual-listing' onClick={onIndividualListingClick}>
-        <img
+        {/*<img
           src='./building.JPG'
           alt='Building Image'
           width='400px'
           height='250px'
-        />
+        />*/}
         <div className='listing-details'>
           <p>
             <span className='price'>

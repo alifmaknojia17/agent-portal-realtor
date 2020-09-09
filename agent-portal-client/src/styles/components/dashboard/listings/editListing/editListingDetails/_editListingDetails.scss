@@ -1,0 +1,49 @@
+@import '../../../../../base/settings';
+@import './editListingDetailsComponent/propertyDetails';
+@import './editListingDetailsComponent/propertyFactsAndFeatures';
+@import './editListingDetailsComponent/propertyNearbySchool';
+@import './editListingDetailsComponent/propertyNearbyThings';
+@import './editListingDetailsComponent/propertyOverview';
+
+.edit-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  border-right: $xxtiny solid black;
+  padding-right: $small;
+  margin: $xxmedium $small 0 $small;
+  height: 100vh;
+  align-items: center;
+
+  .all-details {
+    overflow-y: auto;
+
+    input {
+      margin-right: 5px;
+    }
+    select {
+      margin-right: 5px;
+    }
+  }
+
+  .btn-save {
+    margin: 0 auto $xmedium auto;
+    font-size: $xxsmall;
+    background: none;
+    color: $white;
+    border: none;
+    font-size: $small;
+    width: 120px;
+    height: $medium;
+    background-color: $light-teal;
+    padding: $tiny;
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      color: $light-gray;
+      cursor: pointer;
+    }
+  }
+}

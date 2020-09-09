@@ -1,0 +1,62 @@
+@import '../../../../base/settings';
+@import './modalItems/modalDetails/modalListingDetails';
+
+.modal-wrapper-listing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-backdrop-listing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-box-listing {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 90vh;
+  width: 90%;
+  overflow-y: auto;
+  background-color: $white;
+  box-shadow: 0 0 $tiny rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  padding: $small;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  border-radius: $small;
+}
+
+.modal-listing {
+  display: flex;
+  justify-content: space-around;
+  height: 90vh;
+}
+
+.close-modal-listing {
+  position: absolute;
+  top: 3%;
+  left: 97%;
+  background-color: $off-white;
+  border: none;
+
+  i {
+    font-size: $small;
+    transition: transform 0.2s;
+    color: $teal;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}

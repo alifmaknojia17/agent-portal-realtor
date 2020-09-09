@@ -1,0 +1,11 @@
+@import '../../../base/settings';
+@import './listingFIlter/filterListing';
+@import './individualListing';
+@import './modal/listingModal';
+
+.outter-container {
+  background-color: $off-white;
+  display: flex;
+  justify-content: start;
+  max-height: 100vh;
+}

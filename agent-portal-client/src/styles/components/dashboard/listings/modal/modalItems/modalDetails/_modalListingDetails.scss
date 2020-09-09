@@ -1,0 +1,18 @@
+@import '../../../../../../base/settings';
+
+.modal-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+
+  .price {
+    font-weight: bold;
+    font-size: $xxmedium;
+    margin-right: 90px;
+  }
+  .detail {
+    padding-right: $tiny;
+    font-size: $xxsmall;
+    font-weight: 500;
+  }
+}

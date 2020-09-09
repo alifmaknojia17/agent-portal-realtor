@@ -1,0 +1,9 @@
+@import '../../../../../../base/settings';
+
+.property-overview {
+  textarea {
+    width: 98%;
+    height: $large;
+    resize: none;
+  }
+}

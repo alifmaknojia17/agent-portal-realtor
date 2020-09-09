@@ -1,0 +1,24 @@
+@import '../../../../../base/settings';
+
+.search-criteria {
+  position: relative;
+  top: $tiny;
+  padding-bottom: $tiny;
+  border-bottom: $xxtiny solid $light-gray;
+
+  input {
+    height: $xxmedium;
+    width: 250px;
+  }
+  .search-btn {
+    position: absolute;
+    top: $xtiny;
+    left: 220px;
+    background-color: $white;
+    border: none;
+
+    i {
+      color: $gray;
+    }
+  }
+}

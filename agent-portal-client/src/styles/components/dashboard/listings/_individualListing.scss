@@ -1,0 +1,54 @@
+@import '../../../base/settings';
+
+.listings {
+  display: flex;
+  justify-content: flex-start;
+  width: 1000px;
+  flex-wrap: wrap;
+  margin: 0 auto $small auto;
+  height: 100vh;
+  overflow-y: auto;
+
+  .individual-listing {
+    border: $xxtiny solid $light-gray;
+    margin: 5% $tiny 0 $tiny;
+    width: 420px;
+    height: 450px;
+    padding-top: $tiny;
+    padding-left: $xxsmall;
+    margin-bottom: $tiny;
+
+    .listing-details {
+      .price {
+        font-weight: bold;
+        font-size: $xxmedium;
+        margin-right: 90px;
+      }
+      .detail {
+        padding-right: $tiny;
+        font-size: $xxsmall;
+        font-weight: 500;
+      }
+      #listing-type {
+        font-size: $xxsmall;
+        i {
+          color: $red;
+          font-size: $xxsmall;
+          margin-top: -5px;
+        }
+      }
+      .btn-listing {
+        background-color: $white;
+        border: none;
+        color: $black;
+
+        i {
+          font-size: $small;
+        }
+      }
+      .listing-btns {
+        margin-left: 50%;
+      }
+    }
+  }
+}

@@ -9,21 +9,18 @@ const PropertyNearbySchool = ({ formData, onPropertyNearbySchoolChange }) => {
           <strong>Nearby School: </strong>
         </p>
         <input
-          class='property-nearby-school-input'
           placeholder='School name'
           name='schoolName'
           value={school.schoolName}
           onChange={onPropertyNearbySchoolChange}
         />
         <input
-          class='property-nearby-school-input'
           placeholder='Grades for ex: PK-3'
           name='grades'
           value={school.grades}
           onChange={onPropertyNearbySchoolChange}
         />
         <input
-          class='property-nearby-school-input'
           placeholder='Distance'
           name='distance'
           value={school.distance}

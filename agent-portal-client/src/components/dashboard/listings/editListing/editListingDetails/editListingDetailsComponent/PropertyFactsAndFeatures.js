@@ -9,32 +9,17 @@ const FactAndFeatures = ({ formData, onPropertyFactsAndFeaturesChange }) => {
           <strong>Facts & Features: </strong>
         </p>
         <select
-          className='property-facts-features-input'
           name='propertyType'
           value={factAndFeatures.propertyType}
           onChange={onPropertyFactsAndFeaturesChange}
         >
-          <option className='' value='default'>
-            Property Type:
-          </option>
-          <option className='' value='Single Family'>
-            Single Family
-          </option>
-          <option className='' value='Multi Family'>
-            Multi Family
-          </option>
-          <option className='' value='Condos'>
-            Condos
-          </option>
-          <option className='' value='Apartment'>
-            Apartment
-          </option>
-          <option className='' value='Land'>
-            Land
-          </option>
-          <option className='' value='Town Homes'>
-            Town homes
-          </option>
+          <option value='default'>Property Type:</option>
+          <option value='Single Family'>Single Family</option>
+          <option value='Multi Family'>Multi Family</option>
+          <option value='Condos'>Condos</option>
+          <option value='Apartment'>Apartment</option>
+          <option value='Land'>Land</option>
+          <option value='Town Homes'>Town homes</option>
         </select>
         <input
           placeholder='year built'
@@ -43,14 +28,12 @@ const FactAndFeatures = ({ formData, onPropertyFactsAndFeaturesChange }) => {
           onChange={onPropertyFactsAndFeaturesChange}
         />
         <input
-          className=''
           placeholder='parking'
           name='parking'
           value={factAndFeatures.parking}
           onChange={onPropertyFactsAndFeaturesChange}
         />
         <input
-          className=''
           placeholder='HOA per month'
           name='HOA'
           value={factAndFeatures.HOA}

@@ -9,7 +9,6 @@ const PropertyOverview = ({ formData, onPropertyOverviewChange }) => {
           <strong>Overview: </strong>
         </p>
         <textarea
-          class='property-overview-textarea'
           name='overview'
           placeholder='Describe the property'
           value={overview}

@@ -19,9 +19,7 @@ const FilterListing = ({
         <Price onPriceInputChange={onPriceInputChange} />
         <HomeType onHomeTypeInputChange={onHomeTypeInputChange} />
         <div className='filter-btn-div'>
-          <button className='btn btn-jumbo-signup btn-save filter-btn'>
-            Filter
-          </button>
+          <button className='btn-filter'>Filter</button>
         </div>
       </div>
     </Fragment>

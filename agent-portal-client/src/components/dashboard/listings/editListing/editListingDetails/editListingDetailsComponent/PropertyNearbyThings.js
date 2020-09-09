@@ -9,7 +9,6 @@ const PropertyNearbyThings = ({ formData, onPropertyNearbyThingsChange }) => {
           <strong>Nearby Things: </strong>
         </p>
         <input
-          class='property-nearby-things-input'
           placeholder='Add nearby things for ex: Target, Heb, etc'
           name='things'
           value={nearBy.things}

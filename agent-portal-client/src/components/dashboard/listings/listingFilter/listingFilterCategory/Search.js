@@ -6,7 +6,6 @@ const Search = ({ onSearchInputChange, search }) => {
       <div className='search-criteria'>
         <input
           type='search'
-          className='search-input'
           placeholder='City, State or Zip'
           name='search'
           value={search}

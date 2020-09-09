@@ -1,0 +1,10 @@
+@import '../../../../base/settings';
+@import './editListingDetails/editListingDetails';
+@import './editListingImages/editListingImages';
+
+.edit-listing-container {
+  background-color: $off-white;
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+}

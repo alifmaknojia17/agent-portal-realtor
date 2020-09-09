@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 //action
-import { updateListing, loadListings } from '../../../../../actions/listings';
+import { updateListing } from '../../../../../actions/listings';
 //component
 import PropertyDetails from './editListingDetailsComponent/PropertyDetails';
 import PropertyOverview from './editListingDetailsComponent/PropertyOverview';
@@ -95,7 +95,7 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
 
   return (
     <Fragment>
-      <div class='add-listing-details'>
+      <div class='edit-listing-details'>
         <div class='all-details'>
           <PropertyDetails
             formData={formData}
@@ -118,10 +118,7 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
             onPropertyNearbyThingsChange={onInputChange}
           />
         </div>
-        <button
-          class='btn btn-jumbo-signup btn-save'
-          onClick={onSavePropertyDetailsClick}
-        >
+        <button class='btn-save' onClick={onSavePropertyDetailsClick}>
           Save
         </button>
       </div>

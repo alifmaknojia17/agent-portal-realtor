@@ -637,7 +637,113 @@ body {
   justify-content: space-around;
   height: auto; }
 
-/*----------Extra----------*/
+.search-criteria {
+  position: relative;
+  top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #666f6d; }
+  .search-criteria input {
+    height: 30px;
+    width: 250px; }
+  .search-criteria .search-btn {
+    position: absolute;
+    top: 5px;
+    left: 220px;
+    background-color: #fff;
+    border: none; }
+    .search-criteria .search-btn i {
+      color: #333; }
+
+.filter-for {
+  padding: 0 20px 20px 10px;
+  border-bottom: 1px solid #666f6d; }
+
+.filter-price {
+  padding: 0 20px 20px 10px;
+  border-bottom: 1px solid #666f6d; }
+
+.filter-home-type {
+  padding: 0 20px 20px 10px;
+  border-bottom: 1px solid #666f6d; }
+
+.search {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 0 20px 20px 20px;
+  border-right: 1px solid #666f6d;
+  overflow-y: scroll; }
+  .search .filter-btn-div {
+    margin: 5px auto 5px auto; }
+    .search .filter-btn-div .btn-filter {
+      margin: 0 auto 20px auto;
+      font-size: 15px;
+      background: none;
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      width: 120px;
+      height: 50px;
+      background-color: #00b3b3; }
+      .search .filter-btn-div .btn-filter:focus {
+        outline: none; }
+      .search .filter-btn-div .btn-filter:hover {
+        color: #666f6d;
+        cursor: pointer; }
+
+.listings {
+  display: flex;
+  justify-content: flex-start;
+  width: 1000px;
+  flex-wrap: wrap;
+  margin: 0 auto 20px auto;
+  height: 100vh;
+  overflow-y: auto; }
+  .listings .individual-listing {
+    border: 1px solid #666f6d;
+    margin: 5% 10px 0 10px;
+    width: 420px;
+    height: 450px;
+    padding-top: 10px;
+    padding-left: 15px;
+    margin-bottom: 10px; }
+    .listings .individual-listing .listing-details .price {
+      font-weight: bold;
+      font-size: 30px;
+      margin-right: 90px; }
+    .listings .individual-listing .listing-details .detail {
+      padding-right: 10px;
+      font-size: 15px;
+      font-weight: 500; }
+    .listings .individual-listing .listing-details #listing-type {
+      font-size: 15px; }
+      .listings .individual-listing .listing-details #listing-type i {
+        color: #dc3545;
+        font-size: 15px;
+        margin-top: -5px; }
+    .listings .individual-listing .listing-details .btn-listing {
+      background-color: #fff;
+      border: none;
+      color: #000; }
+      .listings .individual-listing .listing-details .btn-listing i {
+        font-size: 20px; }
+    .listings .individual-listing .listing-details .listing-btns {
+      margin-left: 50%; }
+
+.modal-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around; }
+  .modal-listing-details .price {
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: 90px; }
+  .modal-listing-details .detail {
+    padding-right: 10px;
+    font-size: 15px;
+    font-weight: 500; }
+
 .modal-wrapper-listing {
   position: fixed;
   top: 0;
@@ -671,138 +777,134 @@ body {
   justify-content: space-around;
   border-radius: 20px; }
 
+.modal-listing {
+  display: flex;
+  justify-content: space-around;
+  height: 90vh; }
+
 .close-modal-listing {
   position: absolute;
   top: 3%;
   left: 97%;
   background-color: #fcffff;
   border: none; }
+  .close-modal-listing i {
+    font-size: 20px;
+    transition: transform 0.2s;
+    color: #008080; }
+    .close-modal-listing i:hover {
+      transform: scale(1.5); }
 
-.close-modal-listing i {
-  font-size: 20px;
-  transition: transform 0.2s;
-  color: #008080; }
-
-.close-modal-listing i:hover {
-  transform: scale(1.5); }
-
-.modal-listing {
-  display: flex;
-  justify-content: space-around;
-  height: 90vh; }
-
-.modal-listing-details {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around; }
-
-/*----------Extra END----------*/
-/*----------LOGIN FORM ----------*/
-/*----------LOGIN FORM END----------*/
-/*-----Contact Page-----*/
-/*-----Contact Page END-----*/
-/*----------Profile Page----------*/
-/*----------Profile Page END----------*/
-/*----------Listing Page----------*/
 .outter-container {
   background-color: #fcffff;
   display: flex;
   justify-content: start;
   max-height: 100vh; }
 
-/*---Search Criteria---*/
-.search {
+.property-details {
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
-  margin-top: 30px;
-  padding: 0 20px 20px 20px;
-  border-right: 1px solid #666f6d;
-  overflow-y: scroll; }
+  justify-content: space-around; }
+  .property-details input {
+    height: 20px;
+    margin-bottom: 10px; }
+  .property-details select {
+    height: 20px;
+    margin-bottom: 10px; }
 
-.search-criteria {
-  position: relative;
-  top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #666f6d; }
+.property-facts-features input {
+  height: 20px; }
+.property-facts-features select {
+  height: 20px; }
 
-.search-input {
-  height: 30px;
-  width: 250px; }
+.property-nearby-school input {
+  height: 20px; }
 
-.search-btn {
-  position: absolute;
-  top: 5px;
-  left: 220px;
-  background-color: #fff;
-  border: none; }
-
-.search-btn i {
-  color: #333; }
-
-.filter-for,
-.filter-price,
-.filter-home-type {
-  padding: 0 20px 20px 10px;
-  border-bottom: 1px solid #666f6d; }
-
-.filter-btn-div {
-  margin: 5px auto 5px auto; }
-
-/*---Search Criteria End---*/
-/*---Individual Listing---*/
-.listings {
-  display: flex;
-  justify-content: flex-start;
-  width: 1000px;
-  flex-wrap: wrap;
-  margin: 0 auto 20px auto;
-  height: 100vh;
-  overflow-y: auto; }
-
-.individual-listing {
-  border: 1px solid #666f6d;
-  margin: 5% 10px 0 10px;
-  width: 420px;
-  height: 450px;
-  padding-top: 10px;
-  padding-left: 15px;
+.property-nearby-things input {
+  width: 98%;
+  height: 20px;
   margin-bottom: 10px; }
 
-.price {
-  font-weight: bold;
-  font-size: 30px;
-  margin-right: 90px; }
+.property-overview textarea {
+  width: 98%;
+  height: 100px;
+  resize: none; }
 
-.detail {
-  padding-right: 10px;
-  font-size: 15px;
-  font-weight: 500; }
+.edit-listing-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  border-right: 1px solid black;
+  padding-right: 20px;
+  margin: 30px 20px 0 20px;
+  height: 100vh;
+  align-items: center; }
+  .edit-listing-details .all-details {
+    overflow-y: auto; }
+    .edit-listing-details .all-details input {
+      margin-right: 5px; }
+    .edit-listing-details .all-details select {
+      margin-right: 5px; }
+  .edit-listing-details .btn-save {
+    margin: 0 auto 40px auto;
+    font-size: 15px;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    background-color: #00b3b3;
+    padding: 10px; }
+    .edit-listing-details .btn-save:focus {
+      outline: none; }
+    .edit-listing-details .btn-save:hover {
+      color: #666f6d;
+      cursor: pointer; }
 
-#listing-type {
-  font-size: 15px; }
+.edit-listing-images {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  padding-right: 20px;
+  margin: 30px 20px 0 20px;
+  height: 100vh;
+  overflow-y: auto; }
+  .edit-listing-images .btn-image {
+    margin: 0 auto 20px auto;
+    font-size: 15px;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    background-color: #00b3b3; }
+    .edit-listing-images .btn-image:focus {
+      outline: none; }
+    .edit-listing-images .btn-image:hover {
+      color: #666f6d;
+      cursor: pointer; }
+  .edit-listing-images .btn-edit-listing-edit {
+    margin: 0 auto 20px auto; }
+  .edit-listing-images .listing-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 2;
+    max-width: 750px;
+    overflow-y: scroll;
+    margin-bottom: 20px; }
+    .edit-listing-images .listing-images img {
+      margin-top: 15px;
+      width: 350px;
+      height: 250px; }
 
-#listing-type i {
-  color: #dc3545;
-  font-size: 15px;
-  margin-top: -5px; }
-
-.btn-listing {
-  background-color: #fff;
-  border: none;
-  color: #000; }
-
-.btn-listing i {
-  font-size: 20px; }
-
-.listing-btns {
-  margin-left: 50%; }
-
-/*---Individual Listing End---*/
-/*----------Listing Page END----------*/
-/*----------Add Listing Page----------*/
-/*---Add Listing Details---*/
-/*---Add Listing Images END---*/
-/*----------Add Listing Page END----------*/
+.edit-listing-container {
+  background-color: #fcffff;
+  display: flex;
+  justify-content: space-around;
+  height: auto; }
 
 /*# sourceMappingURL=App.css.map */

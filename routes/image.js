@@ -7,7 +7,6 @@ const fs = require('fs');
 //model
 const Image = require('../models/Image');
 const Listing = require('../models/Listing');
-const { compareSync } = require('bcryptjs');
 
 let count = 1;
 // upload multer object for post request
@@ -43,7 +42,11 @@ router.post('/:listingID', auth, upload.array('image'), async (req, res) => {
       return res.status(400).json({ msg: 'You can only upload 7 images max' });
     }
 
-    console.log(req.files);
+    // console.log(`${req.params.listingID}${req.files[0].originalname}`);
+    // req.files.map((file) => {
+    //   return (file.originalname = req.params.listingID + file.originalname);
+    // });
+    // console.log(req.files);
 
     req.files.forEach(async (file) => {
       const newImage = new Image({

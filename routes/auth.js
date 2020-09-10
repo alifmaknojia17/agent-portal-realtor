@@ -71,7 +71,6 @@ router.post(
         }
       );
     } catch (err) {
-      console.log(err.message);
       return res.status(500).send('Server Error');
     }
   }
@@ -120,7 +119,6 @@ router.post(
         }
       );
     } catch (err) {
-      console.log(err.message);
       return res.status(500).send('Server Error');
     }
   }

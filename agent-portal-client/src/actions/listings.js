@@ -108,7 +108,6 @@ export const loadListingImages = (listingId) => async (dispatch) => {
 
 // post images for listing
 export const listingImages = (data, listingId) => async (dispatch) => {
-  console.log('data', data, 'listingId', listingId);
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -120,8 +119,8 @@ export const listingImages = (data, listingId) => async (dispatch) => {
 
   try {
     const res = await axios.post(`images/${listingId}`, data, config);
-    console.log(res.data);
+    dispatch(setAlert('Images Uploaded', 'success'));
   } catch (err) {
-    console.log(err);
+    dispatch(setAlert('Cannot upload images something went wrong', 'danger'));
   }
 };

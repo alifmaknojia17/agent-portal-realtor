@@ -20,7 +20,6 @@ const Listings = ({
 
   useEffect(() => {
     loadListings();
-    console.log(filter.searchTerm);
     if (allListings.length > 0) {
       const listing = allListings.filter((listing) => {
         return (
@@ -69,7 +68,6 @@ const Listings = ({
     } else {
       newChecked.splice(currentIndex, 1);
     }
-    console.log(newChecked);
     const listing = allListings.filter((listing) => {
       return newChecked.includes(listing.factAndFeatures.propertyType);
     });

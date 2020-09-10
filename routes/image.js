@@ -42,12 +42,6 @@ router.post('/:listingID', auth, upload.array('image'), async (req, res) => {
       return res.status(400).json({ msg: 'You can only upload 7 images max' });
     }
 
-    // console.log(`${req.params.listingID}${req.files[0].originalname}`);
-    // req.files.map((file) => {
-    //   return (file.originalname = req.params.listingID + file.originalname);
-    // });
-    // console.log(req.files);
-
     req.files.forEach(async (file) => {
       const newImage = new Image({
         listing: req.params.listingID,
@@ -58,7 +52,6 @@ router.post('/:listingID', auth, upload.array('image'), async (req, res) => {
     });
     res.send('Images Uploaded');
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -74,7 +67,6 @@ router.get('/:listingID', auth, async (req, res) => {
     }
     res.status(200).send(images);
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -91,7 +83,6 @@ router.delete('/:imageID', auth, async (req, res) => {
     await image.remove();
     res.status(200).send('Image deleted');
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -112,7 +103,6 @@ router.delete('/all/:listingID', auth, async (req, res) => {
     });
     res.status(200).send('All images are deleted.');
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });

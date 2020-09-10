@@ -106,6 +106,7 @@ const IndividualListing = ({
                 to={{
                   pathname: '/edit-listing',
                   listing,
+                  images: img,
                 }}
                 className='btn-listing'
                 id='edit-listing'

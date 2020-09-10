@@ -14,7 +14,6 @@ module.exports = (req, res, next) => {
     req.agent = decoded.agent;
     next();
   } catch (err) {
-    console.log(err.message);
     res.status(401).json({ msg: 'Token is invalid' });
   }
 };

@@ -17,7 +17,6 @@ router.get('/', auth, async (req, res) => {
     }
     res.status(200).send(listings);
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -33,7 +32,6 @@ router.get('/individual/:listingID', auth, async (req, res) => {
     }
     res.status(200).send(listings);
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -134,7 +132,6 @@ router.post(
       await listing.save();
       res.send(listing);
     } catch (err) {
-      console.log(err.message);
       return res.status(500).send('Server Error');
     }
   }
@@ -173,7 +170,6 @@ router.patch('/update/:listingID', auth, async (req, res) => {
     await listing.save();
     res.send(listing);
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -186,7 +182,6 @@ router.delete('/delete/:listingID', auth, async (req, res) => {
     await Listing.deleteMany({ _id: req.params.listingID });
     res.status(200).send('Listing Deleted');
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });

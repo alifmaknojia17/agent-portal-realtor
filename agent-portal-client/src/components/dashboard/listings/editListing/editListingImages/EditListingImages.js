@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { listingImages } from '../../../../../actions/listings';
 import PropTypes from 'prop-types';
 
-const EditListingImages = ({ listing, listingImages }) => {
+const EditListingImages = ({ listing, listingImages, imagesDB }) => {
   const [images, setImages] = useState();
   const onListingImagesChange = (e) => {
     setImages(e.target.files);
@@ -18,8 +18,8 @@ const EditListingImages = ({ listing, listingImages }) => {
   };
   return (
     <Fragment>
-      <div class='edit-listing-images'>
-        <div class='image-upload-btn btn-edit-listing-edit'>
+      <div className='edit-listing-images'>
+        <div className='image-upload-btn btn-edit-listing-edit'>
           <input
             type='file'
             id='real-file'
@@ -27,17 +27,19 @@ const EditListingImages = ({ listing, listingImages }) => {
             onChange={onListingImagesChange}
           />
         </div>
-        <div class='listing-images'>
-          <img src='../building.JPG' alt='image1' />
-          <img src='../building.JPG' alt='image2' />
-          <img src='../building.JPG' alt='image3' />
-          <img src='../building.JPG' alt='image4' />
-          <img src='../building.JPG' alt='image5' />
-          <img src='../building.JPG' alt='image6' />
-          <img src='../building.JPG' alt='image7' />
-          <img src='../building.JPG' alt='image8' />
+        <div className='listing-images'>
+          {imagesDB.map((image) => {
+            return (
+              <div className='edit-images-container'>
+                <img
+                  src={`./listingImages/${image}`}
+                  alt={`building${image}`}
+                />
+              </div>
+            );
+          })}
         </div>
-        <button class='btn-image' onClick={onSaveImagesBtnClick}>
+        <button className='btn-image' onClick={onSaveImagesBtnClick}>
           Save
         </button>
       </div>

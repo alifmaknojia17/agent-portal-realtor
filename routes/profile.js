@@ -16,7 +16,6 @@ router.get('/', auth, async (req, res) => {
     const agent = await Agent.findById(req.agent.id).select('-password');
     return res.status(200).send(agent);
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -55,7 +54,6 @@ router.patch('/edit', auth, async (req, res) => {
     await agent.save();
     res.status(200).send(agent);
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });
@@ -94,7 +92,6 @@ router.patch(
       await agent.save();
       res.status(200).send('Password changed');
     } catch (err) {
-      console.log(err.message);
       return res.status(500).send('Server Error');
     }
   }
@@ -131,7 +128,6 @@ router.patch('/image', auth, upload.single('avatar'), async (req, res) => {
     await agent.save();
     res.status(200).send('Picture uploaded');
   } catch (err) {
-    console.log(err.message);
     return res.status(500).send('Server Error');
   }
 });

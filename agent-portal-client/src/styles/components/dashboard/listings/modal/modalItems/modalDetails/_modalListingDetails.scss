@@ -3,16 +3,23 @@
 .modal-listing-details {
   display: flex;
   flex-flow: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding-right: 10%;
   border-right: 1px solid $gray;
-  overflow-y: auto;
   max-width: 25%;
 
+  .listing-modal-container {
+    overflow-y: auto;
+    height: 100%;
+    margin-top: 10%;
+  }
+  .modal-listing-items {
+    margin-bottom: 20%;
+  }
   .price {
     font-weight: bold;
     font-size: $xxmedium;
-    margin-right: 90px;
+    margin: 5% 10% 0 0;
   }
   .detail {
     padding-right: $tiny;

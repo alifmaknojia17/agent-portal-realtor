@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { LOAD_LISTINGS } from './types';
+import { LOAD_LISTINGS, LOAD_IMAGES } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import { setAlert } from './alert';
 
+// get all listings
 export const loadListings = () => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -19,6 +20,7 @@ export const loadListings = () => async (dispatch) => {
   }
 };
 
+// create new listing
 export const createListing = (data, history) => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -43,6 +45,7 @@ export const createListing = (data, history) => async (dispatch) => {
   }
 };
 
+// update existing listing
 export const updateListing = (data, listingId, history) => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -71,6 +74,7 @@ export const updateListing = (data, listingId, history) => async (dispatch) => {
   }
 };
 
+// delete existing listing
 export const deleteListing = (listingId) => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -85,6 +89,24 @@ export const deleteListing = (listingId) => async (dispatch) => {
   }
 };
 
+// load images for the current listing
+export const loadListingImages = (listingId) => async (dispatch) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+
+  try {
+    const res = await axios.get(`images/${listingId}`);
+    dispatch({
+      type: LOAD_IMAGES,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch(setAlert('Error fetching images', 'danger'));
+  }
+};
+
+// post images for listing
 export const listingImages = (data, listingId) => async (dispatch) => {
   console.log('data', data, 'listingId', listingId);
   if (localStorage.token) {

@@ -4,5 +4,22 @@
   display: flex;
   flex-flow: column;
   justify-content: space-around;
-  flex-grow: 2;
+  // height: auto;
+  // overflow-y: auto;
+  // margin-top: 3%;
+  // margin: 0 auto 0 auto;
+
+  .modal-images {
+    overflow-y: auto;
+  }
+  .modal-image {
+    margin: 5% auto 0 auto;
+    width: 75%;
+    height: 65%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

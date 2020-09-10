@@ -732,15 +732,20 @@ body {
 .modal-listing-details {
   display: flex;
   flex-flow: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding-right: 10%;
   border-right: 1px solid #333;
-  overflow-y: auto;
   max-width: 25%; }
+  .modal-listing-details .listing-modal-container {
+    overflow-y: auto;
+    height: 100%;
+    margin-top: 10%; }
+  .modal-listing-details .modal-listing-items {
+    margin-bottom: 20%; }
   .modal-listing-details .price {
     font-weight: bold;
     font-size: 30px;
-    margin-right: 90px; }
+    margin: 5% 10% 0 0; }
   .modal-listing-details .detail {
     padding-right: 10px;
     font-size: 15px;
@@ -748,6 +753,20 @@ body {
   .modal-listing-details h3 {
     margin-bottom: 10px;
     border-bottom: 1px solid #666f6d; }
+
+.modal-listing-image {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around; }
+  .modal-listing-image .modal-images {
+    overflow-y: auto; }
+  .modal-listing-image .modal-image {
+    margin: 5% auto 0 auto;
+    width: 75%;
+    height: 65%; }
+    .modal-listing-image .modal-image img {
+      width: 100%;
+      height: 100%; }
 
 .modal-wrapper-listing {
   position: fixed;

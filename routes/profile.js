@@ -1,12 +1,19 @@
+require('dotenv/config');
 const auth = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 const express = require('express');
 const multer = require('multer');
 const router = express.Router();
-const fs = require('fs');
+const AWS = require('aws-sdk');
+const { uuid } = require('uuidv4');
 //models
 const Agent = require('../models/Agent');
+
+const s3 = new AWS.S3({
+  accessKeyId: 'AKIAILW62Z4UI3ZHTRUA',
+  secretAccessKey: '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',
+});
 
 // @route GET /profile
 // @desc Get the profile of the logged in agent
@@ -14,7 +21,19 @@ const Agent = require('../models/Agent');
 router.get('/', auth, async (req, res) => {
   try {
     const agent = await Agent.findById(req.agent.id).select('-password');
-    return res.status(200).send(agent);
+
+    const params = {
+      Bucket: 'realtor-agent-portal',
+      Key: agent.avatar,
+    };
+
+    s3.getObject(params, (error, data) => {
+      if (error) {
+        console.log(error);
+      }
+      agent.avatar = data.Body.toString('base64');
+      return res.status(200).send(agent);
+    });
   } catch (err) {
     return res.status(500).send('Server Error');
   }
@@ -99,15 +118,6 @@ router.patch(
 
 // upload object for profile pic
 const upload = multer({
-  storage: multer.diskStorage({
-    destination(res, file, next) {
-      next(null, './agent-portal-client/public/profilePic');
-    },
-    filename(res, file, next) {
-      file.originalname = 'profilePic.jpeg';
-      next(null, file.originalname);
-    },
-  }),
   fileFilter(res, file, cb) {
     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
       return cb(new Error('Please upload an image'));
@@ -115,6 +125,7 @@ const upload = multer({
     cb(undefined, file);
   },
 });
+
 // @route PATCH /profile/image
 // @desc Change profile image
 // @access Private
@@ -124,9 +135,22 @@ router.patch('/image', auth, upload.single('avatar'), async (req, res) => {
     if (!agent) {
       return res.status(400).json({ msg: 'No agent found' });
     }
-    agent.avatar = req.file.filename;
-    await agent.save();
-    res.status(200).send('Picture uploaded');
+    const avatarKey = `profilePic${agent._id}.jpeg`;
+
+    const params = {
+      Bucket: 'realtor-agent-portal',
+      Key: avatarKey,
+      Body: req.file.buffer,
+    };
+
+    s3.upload(params, async (error, data) => {
+      if (error) {
+        console.log(error);
+      }
+      agent.avatar = data.Key;
+      await agent.save();
+      res.status(200).send('Picture uploaded');
+    });
   } catch (err) {
     return res.status(500).send('Server Error');
   }

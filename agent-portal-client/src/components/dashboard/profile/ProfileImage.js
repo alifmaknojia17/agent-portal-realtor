@@ -34,7 +34,10 @@ const ProfileImage = ({ loadUser, profilePic, agent }) => {
       <div className='profile-img'>
         <div className='image-upload-btn'>
           {agent && (
-            <img src={`./profilePic/${agent.avatar}`} alt='Profile Pic' />
+            <img
+              src={`data:image/jpeg;base64,${agent.avatar}`}
+              alt='Profile pic'
+            />
           )}
           <br />
           <input

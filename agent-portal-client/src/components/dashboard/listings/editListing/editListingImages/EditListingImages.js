@@ -1,10 +1,16 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { listingImages } from '../../../../../actions/listings';
+import { listingImages, deleteImage } from '../../../../../actions/listings';
 import PropTypes from 'prop-types';
 
-const EditListingImages = ({ listing, listingImages, imagesDB, history }) => {
+const EditListingImages = ({
+  listing,
+  listingImages,
+  deleteImage,
+  imagesDB,
+  history,
+}) => {
   const [images, setImages] = useState();
   const onListingImagesChange = (e) => {
     setImages(e.target.files);
@@ -15,6 +21,9 @@ const EditListingImages = ({ listing, listingImages, imagesDB, history }) => {
       data.append('image', images[i]);
     }
     listingImages(data, listing._id, history);
+  };
+  const onDeleteImageBtnClicked = (id) => {
+    deleteImage(id, listing._id, history);
   };
   return (
     <Fragment>
@@ -28,16 +37,20 @@ const EditListingImages = ({ listing, listingImages, imagesDB, history }) => {
           />
         </div>
         <div className='listing-images'>
-          {imagesDB.map((image) => {
-            return (
-              <div className='edit-images-container'>
-                <img
-                  src={`data:image/jpeg;base64,${image}`}
-                  alt={`building${image}`}
-                />
-              </div>
-            );
-          })}
+          {imagesDB &&
+            imagesDB.map((image) => {
+              return (
+                <div className='edit-images-container'>
+                  <img
+                    src={`data:image/jpeg;base64,${image.imageString}`}
+                    alt={`building`}
+                  />
+                  <button onClick={(e) => onDeleteImageBtnClicked(image.id)}>
+                    <i className='fa fa-trash'></i>
+                  </button>
+                </div>
+              );
+            })}
         </div>
         <button className='btn-image' onClick={onSaveImagesBtnClick}>
           Save
@@ -49,6 +62,9 @@ const EditListingImages = ({ listing, listingImages, imagesDB, history }) => {
 
 EditListingImages.propTypes = {
   listingImages: PropTypes.func.isRequired,
+  deleteImage: PropTypes.func.isRequired,
 };
 
-export default connect(null, { listingImages })(withRouter(EditListingImages));
+export default connect(null, { listingImages, deleteImage })(
+  withRouter(EditListingImages)
+);

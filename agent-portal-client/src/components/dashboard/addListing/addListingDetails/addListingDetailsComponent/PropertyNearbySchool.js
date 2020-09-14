@@ -4,7 +4,7 @@ const PropertyNearbySchool = ({ formData, onPropertyNearbySchoolChange }) => {
   const school = { ...formData };
   return (
     <Fragment>
-      <div class='property-nearby-school'>
+      <div className='property-nearby-school'>
         <p>
           <strong>Nearby School: </strong>
         </p>
@@ -26,7 +26,7 @@ const PropertyNearbySchool = ({ formData, onPropertyNearbySchoolChange }) => {
           value={school.distance}
           onChange={onPropertyNearbySchoolChange}
         />
-        <button class='property-nearby-school-btn'>Add School</button>
+        <button className='property-nearby-school-btn'>Add School</button>
       </div>
     </Fragment>
   );

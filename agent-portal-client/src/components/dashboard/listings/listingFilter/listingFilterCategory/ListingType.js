@@ -11,7 +11,7 @@ const ListingType = ({ onListingTypeInputChange }) => {
           value='Sale'
           onChange={onListingTypeInputChange}
         />
-        <label for='Sale'>For Sale</label>
+        <label htmlFor='Sale'>For Sale</label>
         <br />
         <input
           type='radio'
@@ -19,7 +19,7 @@ const ListingType = ({ onListingTypeInputChange }) => {
           value='Rent'
           onChange={onListingTypeInputChange}
         />
-        <label for='Rent'>For Rent</label>
+        <label htmlFor='Rent'>For Rent</label>
       </div>
     </Fragment>
   );

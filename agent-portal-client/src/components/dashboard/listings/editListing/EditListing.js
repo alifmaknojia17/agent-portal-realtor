@@ -9,7 +9,7 @@ const EditListing = (props) => {
   return (
     <Fragment>
       <Navbar />
-      <div class='edit-listing-container'>
+      <div className='edit-listing-container'>
         <EditListingDetails listing={listing} />
         <EditListingImages listing={listing} imagesDB={images} />
       </div>

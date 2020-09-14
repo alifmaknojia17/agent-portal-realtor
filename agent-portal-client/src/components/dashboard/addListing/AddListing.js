@@ -6,7 +6,7 @@ const AddListing = () => {
   return (
     <Fragment>
       <Navbar />
-      <div class='add-listing-container'>
+      <div className='add-listing-container'>
         <AddListingDetails />
       </div>
     </Fragment>

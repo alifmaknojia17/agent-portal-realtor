@@ -18,18 +18,19 @@ const IndividualListing = ({
     loadListingImages(listing._id);
   }, [loadListingImages]);
 
-  // diplay main image on listing box
   const img = [];
   images.forEach((image) => {
     if (image.listing === listing._id) {
-      img.push(image.image);
+      img.push({
+        id: image._id,
+        imageString: image.image,
+      });
     }
-    return;
   });
 
   let path = '';
   if (img.length > 0) {
-    path = img[0];
+    path = img[0].imageString;
   }
 
   // delete listing on delete button clicked
@@ -56,7 +57,7 @@ const IndividualListing = ({
             className='close-modal-listing'
             onClick={() => modalRef.current.close()}
           >
-            <i class='fa fa-window-close'></i>
+            <i className='fa fa-window-close'></i>
           </button>
         </div>
       </Modal>
@@ -64,7 +65,6 @@ const IndividualListing = ({
       <div className='individual-listing' onClick={onIndividualListingClick}>
         {path && (
           <img
-            // src={`./listingImages/${path}`}
             src={`data:image/jpeg;base64,${path}`}
             alt='Building Image'
             width='400px'

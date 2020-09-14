@@ -16,7 +16,7 @@ const PropertyDetails = ({ formData, onPropertyDetailsChange }) => {
 
   return (
     <Fragment>
-      <div class='property-details'>
+      <div className='property-details'>
         <p>
           <strong>Property Detail: </strong>
         </p>
@@ -73,13 +73,13 @@ const PropertyDetails = ({ formData, onPropertyDetailsChange }) => {
           value={listingType}
           onChange={onPropertyDetailsChange}
         >
-          <option class='' value='default'>
+          <option className='' value='default'>
             Listing Type:
           </option>
-          <option class='' value='Sale'>
+          <option className='' value='Sale'>
             For Sale
           </option>
-          <option class='' value='Rent'>
+          <option className='' value='Rent'>
             For Rent
           </option>
         </select>

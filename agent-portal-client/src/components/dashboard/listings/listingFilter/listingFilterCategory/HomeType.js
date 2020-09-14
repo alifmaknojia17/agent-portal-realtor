@@ -11,7 +11,7 @@ const HomeType = ({ onHomeTypeInputChange }) => {
           value='singleFamily'
           onChange={onHomeTypeInputChange}
         />
-        <label for='singleFamily'>Single Family</label>
+        <label htmlFor='singleFamily'>Single Family</label>
         <br />
         <input
           type='checkbox'
@@ -19,7 +19,7 @@ const HomeType = ({ onHomeTypeInputChange }) => {
           value='multiFamily'
           onChange={onHomeTypeInputChange}
         />
-        <label for='multiFamily'>Multi Family</label>
+        <label htmlFor='multiFamily'>Multi Family</label>
         <br />
         <input
           type='checkbox'
@@ -27,7 +27,7 @@ const HomeType = ({ onHomeTypeInputChange }) => {
           value='condos'
           onChange={onHomeTypeInputChange}
         />
-        <label for='condos'>Condos</label>
+        <label htmlFor='condos'>Condos</label>
         <br />
         <input
           type='checkbox'
@@ -35,7 +35,7 @@ const HomeType = ({ onHomeTypeInputChange }) => {
           value='apartment'
           onChange={onHomeTypeInputChange}
         />
-        <label for='apartment'>Apartment</label>
+        <label htmlFor='apartment'>Apartment</label>
         <br />
         <input
           type='checkbox'
@@ -43,7 +43,7 @@ const HomeType = ({ onHomeTypeInputChange }) => {
           value='land'
           onChange={onHomeTypeInputChange}
         />
-        <label for='land'>Lots/Land</label>
+        <label htmlFor='land'>Lots/Land</label>
         <br />
         <input
           type='checkbox'
@@ -51,7 +51,7 @@ const HomeType = ({ onHomeTypeInputChange }) => {
           value='townHomes'
           onChange={onHomeTypeInputChange}
         />
-        <label for='townhomes'>Town Homes</label>
+        <label htmlFor='townhomes'>Town Homes</label>
         <br />
       </div>
     </Fragment>

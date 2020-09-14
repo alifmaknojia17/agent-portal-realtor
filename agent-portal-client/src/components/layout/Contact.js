@@ -8,7 +8,7 @@ const Contact = () => (
       <div className='contact-form-div'>
         <form className='contact-us-form'>
           <div className='contact-form-inputs'>
-            <label for='form'>Contact Us</label>
+            <label htmlFor='htmlForm'>Contact Us</label>
             <input className='contact-input' placeholder='Full Name' />
             <input className='contact-input' placeholder='Email' />
             <input className='contact-input' placeholder='Phone Number' />
@@ -24,14 +24,14 @@ const Contact = () => (
                 name='preferredChoice'
                 value='email'
               />
-              <label for='email'>Email?</label>
+              <label htmlFor='email'>Email?</label>
               <input
                 className='contact-input'
                 type='checkbox'
                 name='preferredChoice'
                 value='phone'
               />
-              <label for='phone'>Phone?</label>
+              <label htmlFor='phone'>Phone?</label>
             </div>
             <input className='btn-submit' type='submit' value='Send' />
           </div>

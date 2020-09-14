@@ -104,6 +104,16 @@ router.get('/:listingID', auth, async (req, res) => {
 router.delete('/:imageID', auth, async (req, res) => {
   try {
     const image = await Image.findOne({ _id: req.params.imageID });
+    const params = {
+      Bucket: process.env.AWS_BUCKET_NAME,
+      Key: image.image,
+    };
+    s3.deleteObject(params, (error, data) => {
+      if (error) {
+        console.log(error);
+      }
+      console.log(data);
+    });
     await image.remove();
     res.status(200).send('Image deleted');
   } catch (err) {

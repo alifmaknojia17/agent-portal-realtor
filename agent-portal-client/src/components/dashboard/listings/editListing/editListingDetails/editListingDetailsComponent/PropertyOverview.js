@@ -4,7 +4,7 @@ const PropertyOverview = ({ formData, onPropertyOverviewChange }) => {
   const { overview } = formData;
   return (
     <Fragment>
-      <div class='property-overview'>
+      <div className='property-overview'>
         <p>
           <strong>Overview: </strong>
         </p>

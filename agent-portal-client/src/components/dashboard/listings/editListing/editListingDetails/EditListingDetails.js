@@ -95,8 +95,8 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
 
   return (
     <Fragment>
-      <div class='edit-listing-details'>
-        <div class='all-details'>
+      <div className='edit-listing-details'>
+        <div className='all-details'>
           <PropertyDetails
             formData={formData}
             onPropertyDetailsChange={onInputChange}
@@ -118,7 +118,7 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
             onPropertyNearbyThingsChange={onInputChange}
           />
         </div>
-        <button class='btn-save' onClick={onSavePropertyDetailsClick}>
+        <button className='btn-save' onClick={onSavePropertyDetailsClick}>
           Save
         </button>
       </div>
@@ -128,11 +128,6 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
 
 EditListingDetails.propTypes = {
   updateListing: PropTypes.func.isRequired,
-  // loadListings: PropTypes.func.isRequired,
 };
-
-// const mapStateToProps = (state) => ({
-//   listings: state.allListings,
-// });
 
 export default connect(null, { updateListing })(withRouter(EditListingDetails));

@@ -124,3 +124,19 @@ export const listingImages = (data, listingId, history) => async (dispatch) => {
     dispatch(setAlert('Cannot upload images something went wrong', 'danger'));
   }
 };
+
+export const deleteImage = (imageId, listingId, history) => async (
+  dispatch
+) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+
+  try {
+    await axios.delete(`images/${imageId}`);
+    dispatch(loadListingImages(listingId));
+    history.push('/edit-listing');
+  } catch (err) {
+    dispatch(setAlert('Delete Error', 'danger'));
+  }
+};

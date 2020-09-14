@@ -12,7 +12,7 @@ const Price = ({ onPriceInputChange }) => {
           value='0'
           onChange={onPriceInputChange}
         />
-        <label for='0'>$0+</label>
+        <label htmlFor='0'>$0+</label>
         <br />
         <input
           type='radio'
@@ -21,7 +21,7 @@ const Price = ({ onPriceInputChange }) => {
           value='100000'
           onChange={onPriceInputChange}
         />
-        <label for='100k'>$100,000+</label>
+        <label htmlFor='100k'>$100,000+</label>
         <br />
         <input
           type='radio'
@@ -30,7 +30,7 @@ const Price = ({ onPriceInputChange }) => {
           value='200000'
           onChange={onPriceInputChange}
         />
-        <label for='200k'>$200,000+</label>
+        <label htmlFor='200k'>$200,000+</label>
         <br />
         <input
           type='radio'
@@ -39,7 +39,7 @@ const Price = ({ onPriceInputChange }) => {
           value='300000'
           onChange={onPriceInputChange}
         />
-        <label for='300k'>$300,000+</label>
+        <label htmlFor='300k'>$300,000+</label>
         <br />
         <input
           type='radio'
@@ -48,7 +48,7 @@ const Price = ({ onPriceInputChange }) => {
           value='400000'
           onChange={onPriceInputChange}
         />
-        <label for='400k'>$400,000+</label>
+        <label htmlFor='400k'>$400,000+</label>
         <br />
         <input
           type='radio'
@@ -57,7 +57,7 @@ const Price = ({ onPriceInputChange }) => {
           value='500000'
           onChange={onPriceInputChange}
         />
-        <label for='500k'>$500,000+</label>
+        <label htmlFor='500k'>$500,000+</label>
         <br />
         <input
           type='radio'
@@ -66,7 +66,7 @@ const Price = ({ onPriceInputChange }) => {
           value='600000'
           onChange={onPriceInputChange}
         />
-        <label for='600k'>$600,000+</label>
+        <label htmlFor='600k'>$600,000+</label>
         <br />
         <input
           type='radio'
@@ -75,7 +75,7 @@ const Price = ({ onPriceInputChange }) => {
           value='700000'
           onChange={onPriceInputChange}
         />
-        <label for='700k'>$700,000+</label>
+        <label htmlFor='700k'>$700,000+</label>
         <br />
         <input
           type='radio'
@@ -84,7 +84,7 @@ const Price = ({ onPriceInputChange }) => {
           value='800000'
           onChange={onPriceInputChange}
         />
-        <label for='800k'>$800,000+</label>
+        <label htmlFor='800k'>$800,000+</label>
         <br />
         <input
           type='radio'
@@ -93,7 +93,7 @@ const Price = ({ onPriceInputChange }) => {
           value='900000'
           onChange={onPriceInputChange}
         />
-        <label for='900k'>$900,000+</label>
+        <label htmlFor='900k'>$900,000+</label>
         <br />
         <input
           type='radio'
@@ -102,7 +102,7 @@ const Price = ({ onPriceInputChange }) => {
           value='1000000'
           onChange={onPriceInputChange}
         />
-        <label for='1m'>$1,000,000+</label>
+        <label htmlFor='1m'>$1,000,000+</label>
         <br />
       </div>
     </Fragment>

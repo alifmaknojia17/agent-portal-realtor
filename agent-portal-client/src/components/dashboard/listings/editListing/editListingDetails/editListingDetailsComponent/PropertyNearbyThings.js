@@ -4,7 +4,7 @@ const PropertyNearbyThings = ({ formData, onPropertyNearbyThingsChange }) => {
   const nearBy = { ...formData };
   return (
     <Fragment>
-      <div class='property-nearby-things'>
+      <div className='property-nearby-things'>
         <p>
           <strong>Nearby Things: </strong>
         </p>

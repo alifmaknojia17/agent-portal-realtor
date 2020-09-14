@@ -34,7 +34,7 @@ const Login = ({ login, isAuthenticated }) => {
         <form className='auth-form' id='form' onSubmit={(e) => onSubmit(e)}>
           <div className='form-inputs'>
             <Alert />
-            <label for='form'>Login</label>
+            <label htmlFor='form'>Login</label>
             <input
               className='auth-inputs'
               placeholder='Email'

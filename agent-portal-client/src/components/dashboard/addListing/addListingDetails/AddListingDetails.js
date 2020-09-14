@@ -70,8 +70,8 @@ const AddListingDetails = ({ createListing, history }) => {
 
   return (
     <Fragment>
-      <div class='add-listing-details'>
-        <div class='all-details'>
+      <div className='add-listing-details'>
+        <div className='all-details'>
           <PropertyDetails
             formData={formData}
             onPropertyDetailsChange={onInputChange}
@@ -93,7 +93,7 @@ const AddListingDetails = ({ createListing, history }) => {
             onPropertyNearbyThingsChange={onInputChange}
           />
         </div>
-        <button class='btn-save' onClick={onSavePropertyDetailsClick}>
+        <button className='btn-save' onClick={onSavePropertyDetailsClick}>
           Save
         </button>
       </div>

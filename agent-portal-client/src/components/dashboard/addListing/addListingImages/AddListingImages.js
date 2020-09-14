@@ -3,15 +3,15 @@ import React, { Fragment } from 'react';
 const AddListingImages = () => {
   return (
     <Fragment>
-      <div class='add-listing-images'>
-        <div class='btn-add-listing-edit'>
+      <div className='add-listing-images'>
+        <div className='btn-add-listing-edit'>
           <input type='file' id='real-file' hidden />
-          <button type='button' class='btn-image' id='custom-button'>
+          <button type='button' className='btn-image' id='custom-button'>
             Edit Image
           </button>
           <span id='custom-text'>No file chosen, yet.</span>
         </div>
-        <div class='listing-images'>
+        <div className='listing-images'>
           <img src='../building.JPG' alt='image1' />
           <img src='../building.JPG' alt='image2' />
           <img src='../building.JPG' alt='image3' />
@@ -21,7 +21,7 @@ const AddListingImages = () => {
           <img src='../building.JPG' alt='image7' />
           <img src='../building.JPG' alt='image8' />
         </div>
-        <button class='btn-image'>Save</button>
+        <button className='btn-image'>Save</button>
       </div>
     </Fragment>
   );

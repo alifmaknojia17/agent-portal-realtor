@@ -9,9 +9,8 @@ const ModalListingImages = ({ images }) => {
             return (
               <div className='modal-image'>
                 <img
-                  // src={`./listingImages/${image}`}
-                  src={`data:image/jpeg;base64,${image}`}
-                  alt={`Building${image}`}
+                  src={`data:image/jpeg;base64,${image.imageString}`}
+                  alt={`Building`}
                 />
               </div>
             );

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { listingImages } from '../../../../../actions/listings';
 import PropTypes from 'prop-types';
 
-const EditListingImages = ({ listing, listingImages, imagesDB }) => {
+const EditListingImages = ({ listing, listingImages, imagesDB, history }) => {
   const [images, setImages] = useState();
   const onListingImagesChange = (e) => {
     setImages(e.target.files);
@@ -14,7 +14,7 @@ const EditListingImages = ({ listing, listingImages, imagesDB }) => {
     for (var i = 0; i < images.length; i++) {
       data.append('image', images[i]);
     }
-    listingImages(data, listing._id);
+    listingImages(data, listing._id, history);
   };
   return (
     <Fragment>
@@ -32,7 +32,7 @@ const EditListingImages = ({ listing, listingImages, imagesDB }) => {
             return (
               <div className='edit-images-container'>
                 <img
-                  src={`./listingImages/${image}`}
+                  src={`data:image/jpeg;base64,${image}`}
                   alt={`building${image}`}
                 />
               </div>

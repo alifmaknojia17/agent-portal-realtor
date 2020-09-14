@@ -4,6 +4,10 @@ const initialState = {
   images: [],
 };
 
+let newImages = [];
+let newImagesId = [];
+let uniqueNewImagesId = [];
+
 export default function (state = initialState, action) {
   const { type, payload } = action;
 
@@ -14,9 +18,21 @@ export default function (state = initialState, action) {
         allListings: payload,
       };
     case LOAD_IMAGES:
+      newImages = newImages.concat(payload);
+      state.images = Array.from(
+        new Set(
+          newImages.map((image) => {
+            return image._id;
+          })
+        )
+      ).map((id) => {
+        return newImages.find((image) => {
+          return image._id === id;
+        });
+      });
       return {
         ...state,
-        images: state.images.concat(payload),
+        ...state.images,
       };
     case DELETE_LISTING:
       return {

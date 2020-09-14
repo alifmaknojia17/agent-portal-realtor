@@ -1,4 +1,4 @@
-require('dotenv/config');
+require('dotenv').config();
 const auth = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
@@ -6,13 +6,12 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const AWS = require('aws-sdk');
-const { uuid } = require('uuidv4');
 //models
 const Agent = require('../models/Agent');
 
 const s3 = new AWS.S3({
-  accessKeyId: 'AKIAILW62Z4UI3ZHTRUA',
-  secretAccessKey: '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',
+  accessKeyId: process.env.AWS_ID,
+  secretAccessKey: process.env.AWS_SECRET,
 });
 
 // @route GET /profile
@@ -23,7 +22,7 @@ router.get('/', auth, async (req, res) => {
     const agent = await Agent.findById(req.agent.id).select('-password');
 
     const params = {
-      Bucket: 'realtor-agent-portal',
+      Bucket: process.env.AWS_BUCKET_NAME,
       Key: agent.avatar,
     };
 
@@ -138,7 +137,7 @@ router.patch('/image', auth, upload.single('avatar'), async (req, res) => {
     const avatarKey = `profilePic${agent._id}.jpeg`;
 
     const params = {
-      Bucket: 'realtor-agent-portal',
+      Bucket: process.env.AWS_BUCKET_NAME,
       Key: avatarKey,
       Body: req.file.buffer,
     };

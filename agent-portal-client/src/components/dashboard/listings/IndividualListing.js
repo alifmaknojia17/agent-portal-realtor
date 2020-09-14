@@ -18,7 +18,7 @@ const IndividualListing = ({
     loadListingImages(listing._id);
   }, [loadListingImages]);
 
-  //diplay main image on listing box
+  // diplay main image on listing box
   const img = [];
   images.forEach((image) => {
     if (image.listing === listing._id) {
@@ -26,6 +26,7 @@ const IndividualListing = ({
     }
     return;
   });
+
   let path = '';
   if (img.length > 0) {
     path = img[0];
@@ -63,7 +64,8 @@ const IndividualListing = ({
       <div className='individual-listing' onClick={onIndividualListingClick}>
         {path && (
           <img
-            src={`./listingImages/${path}`}
+            // src={`./listingImages/${path}`}
+            src={`data:image/jpeg;base64,${path}`}
             alt='Building Image'
             width='400px'
             height='250px'

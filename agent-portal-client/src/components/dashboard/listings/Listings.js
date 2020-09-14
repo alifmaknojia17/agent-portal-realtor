@@ -3,15 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navbar from '../Navbar';
-import { loadListings, loadListingImages } from '../../../actions/listings';
+import { loadListings } from '../../../actions/listings';
 import IndividualListing from './IndividualListing';
 import FilterListing from './listingFilter/FilterListing';
 
-const Listings = ({
-  loadListings,
-  loadListingImages,
-  listings: { allListings, images },
-}) => {
+const Listings = ({ loadListings, listings: { allListings } }) => {
   const [filter, setFilter] = useState({
     searchTerm: '',
     listings: '',
@@ -20,6 +16,7 @@ const Listings = ({
 
   useEffect(() => {
     loadListings();
+
     if (allListings.length > 0) {
       const listing = allListings.filter((listing) => {
         return (
@@ -86,15 +83,6 @@ const Listings = ({
           onHomeTypeInputChange={onHomeTypeInputChange}
         />
         <div className='listings'>
-          {/*allListings.length > 0 && filter.listings.length <= 0
-            ? allListings.map((listing) => (
-                <IndividualListing key={listing.id} listing={listing} />
-              ))
-            : filter.listings.length > 0 && filter.listings !== -1
-            ? filter.listings.map((listing) => (
-                <IndividualListing key={listing.id} listing={listing} />
-              ))
-            : 'No Listings'*/}
           {filter.listings.length > 0 && filter.listings !== -1
             ? filter.listings.map((listing) => (
                 <IndividualListing key={listing.id} listing={listing} />
@@ -112,7 +100,6 @@ const Listings = ({
 
 Listings.propTypes = {
   loadListings: PropTypes.func.isRequired,
-  loadListingImages: PropTypes.func.isRequired,
   allListings: PropTypes.array.isRequired,
 };
 
@@ -120,6 +107,4 @@ const mapStateToProps = (state) => ({
   listings: state.allListings,
 });
 
-export default connect(mapStateToProps, { loadListings, loadListingImages })(
-  withRouter(Listings)
-);
+export default connect(mapStateToProps, { loadListings })(withRouter(Listings));

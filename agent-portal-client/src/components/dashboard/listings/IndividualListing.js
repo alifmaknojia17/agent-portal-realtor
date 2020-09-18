@@ -106,9 +106,7 @@ const IndividualListing = ({
             <span className='listing-btns'>
               <Link
                 to={{
-                  pathname: '/edit-listing',
-                  listing,
-                  images: img,
+                  pathname: `/${listing._id}`,
                 }}
                 className='btn-listing'
                 id='edit-listing'

@@ -1,30 +1,54 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { listingImages, deleteImage } from '../../../../../actions/listings';
+import {
+  listingImages,
+  deleteImage,
+  loadListingImages,
+} from '../../../../../actions/listings';
 import PropTypes from 'prop-types';
 
 const EditListingImages = ({
-  listing,
+  listingId,
   listingImages,
   deleteImage,
-  imagesDB,
   history,
+  img: { images },
 }) => {
-  const [images, setImages] = useState();
+  useEffect(() => {
+    loadListingImages(listingId);
+  }, [loadListingImages]);
+
+  const imagesDB = [];
+  images.forEach((image) => {
+    if (image.listing === listingId) {
+      imagesDB.push({
+        id: image._id,
+        imageString: image.image,
+      });
+    }
+  });
+
+  //setting state with the upload files
+  const [imagesState, setImages] = useState();
   const onListingImagesChange = (e) => {
     setImages(e.target.files);
   };
+
+  //when save image button is click
   const onSaveImagesBtnClick = (e) => {
     const data = new FormData();
-    for (var i = 0; i < images.length; i++) {
-      data.append('image', images[i]);
+    for (var i = 0; i < imagesState.length; i++) {
+      data.append('image', imagesState[i]);
     }
-    listingImages(data, listing._id, history);
+    listingImages(data, listingId, history);
   };
+
+  //when delete image button is clicked
   const onDeleteImageBtnClicked = (id) => {
-    deleteImage(id, listing._id, history);
+    deleteImage(id, listingId, history);
   };
+
   return (
     <Fragment>
       <div className='edit-listing-images'>
@@ -37,7 +61,7 @@ const EditListingImages = ({
           />
         </div>
         <div className='listing-images'>
-          {imagesDB &&
+          {imagesDB.length > 0 &&
             imagesDB.map((image) => {
               return (
                 <div className='edit-images-container'>
@@ -62,9 +86,17 @@ const EditListingImages = ({
 
 EditListingImages.propTypes = {
   listingImages: PropTypes.func.isRequired,
+  loadListingImages: PropTypes.func.isRequired,
   deleteImage: PropTypes.func.isRequired,
+  img: PropTypes.object.isRequired,
 };
 
-export default connect(null, { listingImages, deleteImage })(
-  withRouter(EditListingImages)
-);
+const mapStateToProps = (state) => ({
+  img: state.allListings,
+});
+
+export default connect(mapStateToProps, {
+  listingImages,
+  loadListingImages,
+  deleteImage,
+})(withRouter(EditListingImages));

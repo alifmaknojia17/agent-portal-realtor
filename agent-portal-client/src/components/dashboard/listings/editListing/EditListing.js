@@ -4,14 +4,13 @@ import EditListingDetails from './editListingDetails/EditListingDetails';
 import EditListingImages from './editListingImages/EditListingImages';
 
 const EditListing = (props) => {
-  const listing = props.location.listing;
-  const images = props.location.images;
+  const listingId = props.match.params.id;
   return (
     <Fragment>
       <Navbar />
       <div className='edit-listing-container'>
-        <EditListingDetails listing={listing} />
-        <EditListingImages listing={listing} imagesDB={images} />
+        <EditListingDetails listingId={listingId} />
+        <EditListingImages listingId={listingId} />
       </div>
     </Fragment>
   );

@@ -1,9 +1,15 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, {
+  Fragment,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 //action
-import { updateListing } from '../../../../../actions/listings';
+import { updateListing, loadListings } from '../../../../../actions/listings';
 //component
 import PropertyDetails from './editListingDetailsComponent/PropertyDetails';
 import PropertyOverview from './editListingDetailsComponent/PropertyOverview';
@@ -11,9 +17,13 @@ import PropertyFactsAndFeatures from './editListingDetailsComponent/PropertyFact
 import PropertyNearbySchool from './editListingDetailsComponent/PropertyNearbySchool';
 import PropertyNearbyThings from './editListingDetailsComponent/PropertyNearbyThings';
 
-const EditListingDetails = ({ updateListing, history, listing }) => {
-  const listings = { ...listing };
-  const listingId = listings._id;
+const EditListingDetails = ({
+  updateListing,
+  loadListings,
+  history,
+  listingId,
+  listings: { allListings },
+}) => {
   const [formData, setFormData] = useState({
     street: '',
     city: '',
@@ -35,28 +45,36 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
     things: '',
   });
 
-  useEffect(() => {
-    setFormData({
-      street: listings ? listings.propertyDetails.street : '',
-      city: listings ? listings.propertyDetails.city : '',
-      state: listings ? listings.propertyDetails.state : '',
-      zip: listings ? listings.propertyDetails.zip : '',
-      price: listings ? listings.propertyDetails.price : '',
-      squareFoot: listings ? listings.propertyDetails.squareFoot : '',
-      beds: listings ? listings.propertyDetails.beds : '',
-      bath: listings ? listings.propertyDetails.bath : '',
-      listingType: listings ? listings.propertyDetails.listingType : '',
-      overview: listings ? listings.overview : '',
-      propertyType: listings ? listings.factAndFeatures.propertyType : '',
-      yearBuilt: listings ? listings.factAndFeatures.yearBuilt : '',
-      parking: listings ? listings.factAndFeatures.parking : '',
-      HOA: listings ? listings.factAndFeatures.HOA : '',
-      schoolName: listings ? listings.school.schoolName : '',
-      grades: listings ? listings.school.grades : '',
-      distance: listings ? listings.school.distance : '',
-      things: listings ? listings.nearBy : '',
+  useMemo(() => {
+    const listings = allListings.filter((listing) => {
+      if (listing._id === listingId) {
+        setFormData({
+          street: listing.propertyDetails.street,
+          city: listing.propertyDetails.city,
+          state: listing.propertyDetails.state,
+          zip: listing.propertyDetails.zip,
+          price: listing.propertyDetails.price,
+          squareFoot: listing.propertyDetails.squareFoot,
+          beds: listing.propertyDetails.beds,
+          bath: listing.propertyDetails.bath,
+          listingType: listing.propertyDetails.listingType,
+          overview: listing.overview,
+          propertyType: listing.factAndFeatures.propertyType,
+          yearBuilt: listing.factAndFeatures.yearBuilt,
+          parking: listing.factAndFeatures.parking,
+          HOA: listing.factAndFeatures.HOA,
+          schoolName: listing.school.schoolName,
+          grades: listing.school.grades,
+          distance: listing.school.distance,
+          things: listing.nearBy,
+        });
+      }
     });
-  }, []);
+  }, [allListings]);
+
+  useEffect(() => {
+    loadListings();
+  }, [loadListings]);
 
   const data = {
     propertyDetails: {
@@ -128,6 +146,14 @@ const EditListingDetails = ({ updateListing, history, listing }) => {
 
 EditListingDetails.propTypes = {
   updateListing: PropTypes.func.isRequired,
+  loadListings: PropTypes.func.isRequired,
+  listings: PropTypes.array.isRequired,
 };
 
-export default connect(null, { updateListing })(withRouter(EditListingDetails));
+const mapStateToProps = (state) => ({
+  listings: state.allListings,
+});
+
+export default connect(mapStateToProps, { updateListing, loadListings })(
+  withRouter(EditListingDetails)
+);

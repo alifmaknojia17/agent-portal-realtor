@@ -4,6 +4,7 @@
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+  max-width: 75%;
 
   .modal-images {
     overflow-y: auto;

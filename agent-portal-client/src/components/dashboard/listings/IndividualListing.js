@@ -13,6 +13,7 @@ const IndividualListing = ({
   deleteListing,
   loadListingImages,
   img: { images },
+  history,
 }) => {
   useEffect(() => {
     loadListingImages(listing._id);
@@ -35,7 +36,7 @@ const IndividualListing = ({
 
   // delete listing on delete button clicked
   const onDeleteListingBtnClick = (e) => {
-    deleteListing(listing._id);
+    deleteListing(listing._id, history);
   };
 
   const onIndividualListingClick = () => {

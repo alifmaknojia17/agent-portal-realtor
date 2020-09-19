@@ -6,12 +6,13 @@
   justify-content: space-around;
   padding-right: 10%;
   border-right: 1px solid $gray;
-  max-width: 25%;
+  min-width: 25%;
 
   .listing-modal-container {
     overflow-y: auto;
     height: 100%;
     margin-top: 10%;
+    width: 100%;
   }
   .modal-listing-items {
     margin-bottom: 20%;

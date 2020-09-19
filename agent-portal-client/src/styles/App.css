@@ -726,6 +726,8 @@ body {
       color: #000; }
       .listings .individual-listing .listing-details .btn-listing i {
         font-size: 20px; }
+      .listings .individual-listing .listing-details .btn-listing:hover {
+        cursor: pointer; }
     .listings .individual-listing .listing-details .listing-btns {
       margin-left: 50%; }
 
@@ -735,11 +737,12 @@ body {
   justify-content: space-around;
   padding-right: 10%;
   border-right: 1px solid #333;
-  max-width: 25%; }
+  min-width: 25%; }
   .modal-listing-details .listing-modal-container {
     overflow-y: auto;
     height: 100%;
-    margin-top: 10%; }
+    margin-top: 10%;
+    width: 100%; }
   .modal-listing-details .modal-listing-items {
     margin-bottom: 20%; }
   .modal-listing-details .price {
@@ -757,7 +760,8 @@ body {
 .modal-listing-image {
   display: flex;
   flex-flow: column;
-  justify-content: space-around; }
+  justify-content: space-around;
+  max-width: 75%; }
   .modal-listing-image .modal-images {
     overflow-y: auto; }
   .modal-listing-image .modal-image {
@@ -924,6 +928,14 @@ body {
       margin-top: 15px;
       width: 350px;
       height: 250px; }
+    .edit-listing-images .listing-images .btn-listing {
+      background-color: #fff;
+      border: none;
+      color: #000; }
+      .edit-listing-images .listing-images .btn-listing i {
+        font-size: 20px; }
+      .edit-listing-images .listing-images .btn-listing:hover {
+        cursor: pointer; }
 
 .edit-listing-container {
   background-color: #fcffff;

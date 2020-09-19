@@ -51,7 +51,10 @@ const EditListingImages = ({
                     src={`data:image/jpeg;base64,${image.image}`}
                     alt='building'
                   />
-                  <button onClick={(e) => onDeleteImageBtnClicked(image._id)}>
+                  <button
+                    className='btn-listing'
+                    onClick={(e) => onDeleteImageBtnClicked(image._id)}
+                  >
                     <i className='fa fa-trash'></i>
                   </button>
                 </div>

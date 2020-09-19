@@ -45,6 +45,9 @@
         i {
           font-size: $small;
         }
+        &:hover {
+          cursor: pointer;
+        }
       }
       .listing-btns {
         margin-left: 50%;

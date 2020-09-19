@@ -57,13 +57,6 @@ router.patch('/edit', auth, async (req, res) => {
       return res.status(400).json({ msg: 'No agent found' });
     }
 
-    let phone = req.body.phoneNumber.split('');
-    phone.splice(0, 0, '(');
-    phone.splice(4, 0, ')');
-    phone.splice(5, 0, ' ');
-    phone.splice(9, 0, '-');
-    req.body.phoneNumber = phone.join(' ');
-
     updates.forEach((update) => {
       (agent.fullName = req.body.fullName),
         (agent.email = req.body.email),

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Alert from '../../layout/Alert';
 import PropTypes from 'prop-types';
 
-const ProfilePassword = ({ changePassword, setAlert }) => {
+const ProfilePassword = ({ changePassword, setAlert, history }) => {
   const [formData, setFormData] = useState({
     currentPassword: '',
     newPassword: '',
@@ -25,7 +25,13 @@ const ProfilePassword = ({ changePassword, setAlert }) => {
     if (newPassword !== confirmPassword) {
       setAlert('New password do not match', 'danger');
     } else {
-      changePassword(formData);
+      changePassword(formData, history);
+      setFormData({
+        ...formData,
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: '',
+      });
     }
   };
 

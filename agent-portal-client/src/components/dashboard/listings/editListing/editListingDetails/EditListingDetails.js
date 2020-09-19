@@ -39,30 +39,32 @@ const EditListingDetails = ({
   });
 
   useMemo(() => {
-    const listings = allListings.filter((listing) => {
-      if (listing._id === listingId) {
-        setFormData({
-          street: listing.propertyDetails.street,
-          city: listing.propertyDetails.city,
-          state: listing.propertyDetails.state,
-          zip: listing.propertyDetails.zip,
-          price: listing.propertyDetails.price,
-          squareFoot: listing.propertyDetails.squareFoot,
-          beds: listing.propertyDetails.beds,
-          bath: listing.propertyDetails.bath,
-          listingType: listing.propertyDetails.listingType,
-          overview: listing.overview,
-          propertyType: listing.factAndFeatures.propertyType,
-          yearBuilt: listing.factAndFeatures.yearBuilt,
-          parking: listing.factAndFeatures.parking,
-          HOA: listing.factAndFeatures.HOA,
-          schoolName: listing.school.schoolName,
-          grades: listing.school.grades,
-          distance: listing.school.distance,
-          things: listing.nearBy,
-        });
-      }
-    });
+    if (allListings.length > 0) {
+      const listings = allListings.filter((listing) => {
+        if (listing._id === listingId) {
+          setFormData({
+            street: listing.propertyDetails.street,
+            city: listing.propertyDetails.city,
+            state: listing.propertyDetails.state,
+            zip: listing.propertyDetails.zip,
+            price: listing.propertyDetails.price,
+            squareFoot: listing.propertyDetails.squareFoot,
+            beds: listing.propertyDetails.beds,
+            bath: listing.propertyDetails.bath,
+            listingType: listing.propertyDetails.listingType,
+            overview: listing.overview,
+            propertyType: listing.factAndFeatures.propertyType,
+            yearBuilt: listing.factAndFeatures.yearBuilt,
+            parking: listing.factAndFeatures.parking,
+            HOA: listing.factAndFeatures.HOA,
+            schoolName: listing.school.schoolName,
+            grades: listing.school.grades,
+            distance: listing.school.distance,
+            things: listing.nearBy,
+          });
+        }
+      });
+    }
   }, [allListings]);
 
   const data = {

@@ -56,7 +56,7 @@ export const updateListing = (data, listingId, history) => async (dispatch) => {
       'Content-Type': 'application/json',
     },
   };
-  history.push('/listings');
+  // history.push('/listings');
   try {
     const res = await axios.patch(
       `/listings/update/${listingId}`,
@@ -68,14 +68,14 @@ export const updateListing = (data, listingId, history) => async (dispatch) => {
       type: LOAD_LISTINGS,
       payload: res.data,
     });
-    history.push('/listings');
+    await history.push('/listings');
   } catch (err) {
     dispatch(setAlert('Cannot update listing', 'danger'));
   }
 };
 
 // delete existing listing
-export const deleteListing = (listingId) => async (dispatch) => {
+export const deleteListing = (listingId, history) => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -84,6 +84,7 @@ export const deleteListing = (listingId) => async (dispatch) => {
     const res = await axios.delete(`/listings/delete/${listingId}`);
     dispatch(loadListings());
     dispatch(setAlert(res.data, 'success'));
+    history.push('/listings');
   } catch (err) {
     dispatch(setAlert('Cannot delete listing at this time', 'danger'));
   }
@@ -136,7 +137,7 @@ export const deleteImage = (imageId, listingId, history) => async (
   try {
     await axios.delete(`images/${imageId}`);
     dispatch(loadListingImages(listingId));
-    history.push('/edit-listing');
+    await history.push(`/${listingId}`);
   } catch (err) {
     dispatch(setAlert('Delete Error', 'danger'));
   }

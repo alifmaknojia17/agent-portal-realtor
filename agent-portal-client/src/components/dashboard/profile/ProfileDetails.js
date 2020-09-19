@@ -23,6 +23,16 @@ const ProfileDetails = ({ loadUser, editProfile, agent }) => {
   }, [loadUser]);
 
   const { fullName, email, phoneNumber } = formData;
+  let phone;
+  if (agent) {
+    console.log('phone', agent.phoneNumber);
+    phone = agent.phoneNumber.split('');
+    phone.splice(0, 0, '(');
+    phone.splice(4, 0, ')');
+    phone.splice(5, 0, ' ');
+    phone.splice(9, 0, '-');
+    console.log('phone number', phone);
+  }
   const modalRef = React.useRef();
   const openModal = () => {
     modalRef.current.openModal();
@@ -88,7 +98,11 @@ const ProfileDetails = ({ loadUser, editProfile, agent }) => {
           <strong>Email:</strong> {agent && agent.email}
         </p>
         <p className='profile-text profile-details'>
-          <strong>Phone:</strong> {agent && agent.phoneNumber}
+          <strong>Phone:</strong>{' '}
+          {
+            phone && phone
+            // agent.phoneNumber
+          }
         </p>
       </div>
     </Fragment>

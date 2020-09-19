@@ -38,9 +38,11 @@ export const editProfile = ({ fullName, email, phoneNumber }) => async (
   }
 };
 
-export const changePassword = ({ currentPassword, newPassword }) => async (
-  dispatch
-) => {
+export const changePassword = ({
+  currentPassword,
+  newPassword,
+  history,
+}) => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -58,6 +60,7 @@ export const changePassword = ({ currentPassword, newPassword }) => async (
     dispatch(setAlert(res.data, 'success'));
 
     dispatch(loadUser());
+    history.push('/profile');
   } catch (err) {
     dispatch({
       type: EDIT_PASSWORD_ERROR,

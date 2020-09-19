@@ -116,10 +116,11 @@ export const listingImages = (data, listingId, history) => async (dispatch) => {
       'Content-Type': 'multipart/form-data',
     },
   };
-  history.push('/listings');
+
   try {
     const res = await axios.post(`images/${listingId}`, data, config);
     dispatch(setAlert('Images Uploaded', 'success'));
+    history.push('/listings');
   } catch (err) {
     dispatch(setAlert('Cannot upload images something went wrong', 'danger'));
   }

@@ -1,15 +1,9 @@
-import React, {
-  Fragment,
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-} from 'react';
+import React, { Fragment, useState, useMemo } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 //action
-import { updateListing, loadListings } from '../../../../../actions/listings';
+import { updateListing } from '../../../../../actions/listings';
 //component
 import PropertyDetails from './editListingDetailsComponent/PropertyDetails';
 import PropertyOverview from './editListingDetailsComponent/PropertyOverview';
@@ -19,7 +13,6 @@ import PropertyNearbyThings from './editListingDetailsComponent/PropertyNearbyTh
 
 const EditListingDetails = ({
   updateListing,
-  loadListings,
   history,
   listingId,
   listings: { allListings },
@@ -71,10 +64,6 @@ const EditListingDetails = ({
       }
     });
   }, [allListings]);
-
-  useEffect(() => {
-    loadListings();
-  }, [loadListings]);
 
   const data = {
     propertyDetails: {
@@ -146,7 +135,6 @@ const EditListingDetails = ({
 
 EditListingDetails.propTypes = {
   updateListing: PropTypes.func.isRequired,
-  loadListings: PropTypes.func.isRequired,
   listings: PropTypes.array.isRequired,
 };
 
@@ -154,6 +142,6 @@ const mapStateToProps = (state) => ({
   listings: state.allListings,
 });
 
-export default connect(mapStateToProps, { updateListing, loadListings })(
+export default connect(mapStateToProps, { updateListing })(
   withRouter(EditListingDetails)
 );

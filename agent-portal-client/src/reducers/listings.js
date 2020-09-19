@@ -5,8 +5,6 @@ const initialState = {
 };
 
 let newImages = [];
-let newImagesId = [];
-let uniqueNewImagesId = [];
 
 export default function (state = initialState, action) {
   const { type, payload } = action;

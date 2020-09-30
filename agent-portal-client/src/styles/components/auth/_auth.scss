@@ -95,6 +95,24 @@
         height: $medium;
       }
     }
+    .socialBtn {
+      background-color: $teal;
+      border: none;
+      width: $xxmedium;
+      height: $xxmedium;
+      margin-left: $xtiny;
+      &:focus {
+        outline: none;
+      }
+
+      i {
+        color: white;
+        font-size: $small;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 

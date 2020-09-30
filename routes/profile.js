@@ -6,6 +6,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const AWS = require('aws-sdk');
+const gravatar = require('gravatar');
 //models
 const Agent = require('../models/Agent');
 
@@ -20,21 +21,24 @@ const s3 = new AWS.S3({
 router.get('/', auth, async (req, res) => {
   try {
     const agent = await Agent.findById(req.agent.id).select('-password');
+    if (!agent.avatar.includes('http')) {
+      const params = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: agent.avatar,
+      };
 
-    const params = {
-      Bucket: process.env.AWS_BUCKET_NAME,
-      Key: agent.avatar,
-    };
-
-    s3.getObject(params, (error, data) => {
-      if (error) {
-        console.log(error);
-      }
-      agent.avatar = data.Body.toString('base64');
-      return res.status(200).send(agent);
-    });
+      s3.getObject(params, (error, data) => {
+        if (error) {
+          console.log(error);
+        }
+        agent.avatar = data.Body.toString('base64');
+        return res.send(agent);
+      });
+    } else {
+      res.send(agent);
+    }
   } catch (err) {
-    return res.status(500).send('Server Error');
+    return res.send('Server Error', err);
   }
 });
 

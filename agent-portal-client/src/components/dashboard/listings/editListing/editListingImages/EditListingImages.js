@@ -20,8 +20,10 @@ const EditListingImages = ({
   //when save image button is click
   const onSaveImagesBtnClick = (e) => {
     const data = new FormData();
-    for (var i = 0; i < imagesState.length; i++) {
-      data.append('image', imagesState[i]);
+    if (imagesState !== undefined) {
+      for (var i = 0; i < imagesState.length; i++) {
+        data.append('image', imagesState[i]);
+      }
     }
     listingImages(data, listingId, history);
   };

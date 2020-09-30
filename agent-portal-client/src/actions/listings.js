@@ -109,6 +109,9 @@ export const loadListingImages = (listingId) => async (dispatch) => {
 
 // post images for listing
 export const listingImages = (data, listingId, history) => async (dispatch) => {
+  if (data === null) {
+    return history.push('/listings');
+  }
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -119,7 +122,7 @@ export const listingImages = (data, listingId, history) => async (dispatch) => {
   };
 
   try {
-    const res = await axios.post(`images/${listingId}`, data, config);
+    await axios.post(`images/${listingId}`, data, config);
     dispatch(setAlert('Images Uploaded', 'success'));
     history.push('/listings');
   } catch (err) {
@@ -137,7 +140,7 @@ export const deleteImage = (imageId, listingId, history) => async (
   try {
     await axios.delete(`images/${imageId}`);
     dispatch(loadListingImages(listingId));
-    await history.push(`/${listingId}`);
+    history.push(`/${listingId}`);
   } catch (err) {
     dispatch(setAlert('Delete Error', 'danger'));
   }

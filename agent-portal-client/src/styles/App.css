@@ -283,6 +283,19 @@ body {
       color: #fff;
       width: 40px;
       height: 50px; }
+  .form-option-1 .social .socialBtn {
+    background-color: #008080;
+    border: none;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px; }
+    .form-option-1 .social .socialBtn:focus {
+      outline: none; }
+    .form-option-1 .social .socialBtn i {
+      color: white;
+      font-size: 20px; }
+      .form-option-1 .social .socialBtn i:hover {
+        cursor: pointer; }
 
 .text-3 {
   color: #008080;

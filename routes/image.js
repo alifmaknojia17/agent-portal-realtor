@@ -108,14 +108,13 @@ router.delete('/:imageID', auth, async (req, res) => {
       Bucket: process.env.AWS_BUCKET_NAME,
       Key: image.image,
     };
+    await image.remove();
     s3.deleteObject(params, (error, data) => {
       if (error) {
         console.log(error);
       }
-      console.log(data);
+      res.status(200).send('Image deleted');
     });
-    await image.remove();
-    res.status(200).send('Image deleted');
   } catch (err) {
     return res.status(500).send('Server Error');
   }

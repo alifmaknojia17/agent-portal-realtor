@@ -55,6 +55,52 @@ export const register = ({ fullName, email, password, phoneNumber }) => async (
   }
 };
 
+//google login
+export const googleLogin = ({ tokenId, agentAvatar }) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  const body = {
+    tokenId,
+    agentAvatar,
+  };
+  try {
+    const res = await axios.post('/auth/google', body, config);
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+    });
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch(setAlert('Cannot login', 'danger'));
+  }
+};
+
+// facebook login
+export const facebookLogin = ({ accessToken, userID }) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  const body = {
+    accessToken,
+    userID,
+  };
+  try {
+    const res = await axios.post('/auth/facebook', body, config);
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+    });
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch(setAlert('Cannot login', 'danger'));
+  }
+};
+
 //login agent
 export const login = (email, password) => async (dispatch) => {
   const config = {

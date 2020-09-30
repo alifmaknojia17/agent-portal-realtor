@@ -5,6 +5,8 @@ const express = require('express');
 const gravatar = require('gravatar');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
+const { OAuth2Client } = require('google-auth-library');
+const fetch = require('node-fetch');
 const router = express.Router();
 //models
 const Agent = require('../models/Agent');
@@ -33,7 +35,7 @@ router.post(
         return res.status(400).json({ msg: 'User already exists' });
       }
 
-      const avatar = './agent-portal-client/public/profilePic/profilePic.jpeg';
+      // const avatar = './agent-portal-client/public/profilePic/profilePic.jpeg';
 
       let phone = phoneNumber.split('');
       phone.splice(0, 0, '(');
@@ -123,5 +125,130 @@ router.post(
     }
   }
 );
+
+const client = new OAuth2Client(
+  '239213687672-eq8drf05rc9khah97pfo1konh54ndt08.apps.googleusercontent.com'
+);
+
+// @route POST auth/login/google
+// @desc Login new user with google
+// @access Public
+router.post('/google', async (req, res) => {
+  const { tokenId, agentAvatar } = req.body;
+  const response = await client.verifyIdToken({
+    idToken: tokenId,
+    audience:
+      '239213687672-eq8drf05rc9khah97pfo1konh54ndt08.apps.googleusercontent.com',
+  });
+  const { email_verified, email, name } = response.payload;
+  if (email_verified) {
+    let agent = await Agent.findOne({ email });
+    if (!agent) {
+      agent = new Agent({
+        fullName: name,
+        email,
+        password: email,
+        phoneNumber: '0000000000',
+        avatar: agentAvatar,
+      });
+      const salt = await bcrypt.genSalt(10);
+      agent.password = await bcrypt.hash(agent.password, salt);
+      await agent.save();
+
+      const payload = {
+        agent: {
+          id: agent.id,
+        },
+      };
+
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          res.status(200).send({ token });
+        }
+      );
+    } else {
+      const payload = {
+        agent: {
+          id: agent.id,
+        },
+      };
+
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          return res.send({ token });
+        }
+      );
+    }
+  }
+});
+
+// @route POST auth/login/facebook
+// @desc Login new user with facebook
+// @access Public
+router.post('/facebook', async (req, res) => {
+  const { accessToken, userID } = req.body;
+  let FacebookUrl = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
+
+  fetch(FacebookUrl, {
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then(async (response) => {
+      const { name, email } = response;
+      let agent = await Agent.findOne({ email });
+      if (!agent) {
+        agent = new Agent({
+          fullName: name,
+          email,
+          password: email,
+          phoneNumber: '0000000000',
+          avatar: 'http',
+        });
+        const salt = await bcrypt.genSalt(10);
+        agent.password = await bcrypt.hash(agent.password, salt);
+        await agent.save();
+
+        const payload = {
+          agent: {
+            id: agent.id,
+          },
+        };
+
+        jwt.sign(
+          payload,
+          config.get('jwtSecret'),
+          { expiresIn: 360000 },
+          (err, token) => {
+            if (err) throw err;
+            res.send({ token });
+          }
+        );
+      } else {
+        const payload = {
+          agent: {
+            id: agent.id,
+          },
+        };
+
+        jwt.sign(
+          payload,
+          config.get('jwtSecret'),
+          { expiresIn: 360000 },
+          (err, token) => {
+            if (err) throw err;
+            return res.send({ token });
+          }
+        );
+      }
+    });
+});
 
 module.exports = router;

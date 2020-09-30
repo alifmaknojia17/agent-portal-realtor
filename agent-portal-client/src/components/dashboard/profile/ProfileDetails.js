@@ -25,13 +25,11 @@ const ProfileDetails = ({ loadUser, editProfile, agent }) => {
   const { fullName, email, phoneNumber } = formData;
   let phone;
   if (agent) {
-    console.log('phone', agent.phoneNumber);
     phone = agent.phoneNumber.split('');
     phone.splice(0, 0, '(');
     phone.splice(4, 0, ')');
     phone.splice(5, 0, ' ');
     phone.splice(9, 0, '-');
-    console.log('phone number', phone);
   }
   const modalRef = React.useRef();
   const openModal = () => {

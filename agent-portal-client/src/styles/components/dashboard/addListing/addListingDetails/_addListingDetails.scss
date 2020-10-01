@@ -35,6 +35,7 @@
     height: $medium;
     background-color: $light-teal;
     padding: $tiny;
+    transition: 0.4s color;
 
     &:focus {
       outline: none;

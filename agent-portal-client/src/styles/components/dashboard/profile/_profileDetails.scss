@@ -22,6 +22,7 @@
   width: 120px;
   height: $medium;
   background-color: $light-teal;
+  transition: 0.4s color;
 
   &:focus {
     outline: none;

@@ -50,6 +50,7 @@
   left: 97%;
   background-color: $off-white;
   border: none;
+  transition: 0.4s background-color;
 
   i {
     font-size: $small;

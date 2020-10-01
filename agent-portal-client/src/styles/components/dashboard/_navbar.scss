@@ -60,6 +60,7 @@
   font-size: $small;
   width: 120px;
   height: $medium;
+  transition: 0.4s color;
 
   &:hover {
     color: $light-teal;

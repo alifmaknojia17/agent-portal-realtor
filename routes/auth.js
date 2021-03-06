@@ -49,7 +49,7 @@ router.post(
         email,
         password,
         phoneNumber,
-        avatar,
+        //avatar,
       });
 
       const salt = await bcrypt.genSalt(10);
